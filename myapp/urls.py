@@ -7,3 +7,4 @@ urlpatterns=[
     path("hsk/<str:id>", views.hsk, name="hsk"),
     path("test/<str:id>", views.test, name="test")
 ]
+#coba
