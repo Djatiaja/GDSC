@@ -15,5 +15,4 @@ def hsk(request, id):
     return render(request, "hsk.html", {"hsk": hsk, "list":list1})
 
 def test(request, id):
-
     return render(request, "link.html", {"link": id})
