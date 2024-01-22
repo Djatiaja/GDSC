@@ -14,10 +14,9 @@ def index(request):
 def hsk(request, id):
     hsk= list_hsk.objects.get(id=id)
     list1=[1,2,3]
-    return render(request, "hsk.html", {"hsk": hsk, "list":list1})
+    return render(request, "TrueHSK.html", {"hsk": hsk, "list":list1})
 
 def test(request, id):
-
     return render(request, "link.html", {"link": id})
 
 def loginUser(request):
@@ -47,4 +46,7 @@ def register(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect("login")
+    return redirect("/")
+
+def profile(request):
+    return render(request, 'profile.html')

@@ -1,0 +1,416 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
+    <title>HSK 1</title>
+    <style>
+        body {
+            background-color: #fefefe;
+            margin: 0; 
+            padding: 0;
+        }
+        h1 {
+            color:whitesmoke;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 80px;
+            overflow: hidden;
+            padding-bottom: -100px;
+        }
+        h3{
+            background-color: #e8bb15;
+            color: #3942a8;
+            font-size: medium;
+            overflow: hidden;
+        }
+        p {
+            color:whitesmoke;
+            font-family:system-ui;
+            font-size:large;
+
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            color:whitesmoke;
+            
+        }
+        li {
+            float: right;
+            display: block;
+            color:whitesmoke;
+            text-align:center;
+            margin: 15px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        
+        li a:hover{
+            background-color:#111111;
+            
+        }
+        .vertikal {
+            border-left: 10px solid whitesmoke; 
+            height: 10%; 
+            margin-top: 70px;
+            position: absolute;
+            left: 510px; 
+        }
+        .persegi-panjang{ 
+            height: 90px;
+            width: 1250px;
+            margin-top: 0;
+            position: absolute;
+            background-color: #624166;
+
+        }
+        .tulisan{
+            color: whitesmoke;
+            z-index: 1;
+        }
+        header{
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+        }
+        .pp {
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+            height: 60px;
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            justify-content: flex-end;
+        }
+
+        
+        .menu-kanan1{
+            float: left;
+        }
+        .menu-kanan {
+            text-align: right;
+        }
+        .hskbutton{
+            float: right;
+            display: block;
+            background-color: #3942a8;
+            color:whitesmoke;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align:center;
+            padding-bottom: 10px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+            border:none;
+            cursor: pointer;
+            font-size: large;
+        }
+
+        .hskbutton:hover{
+            background-color: whitesmoke;
+            color: #3942a8;
+            padding: 20px;
+        }
+        
+        .dropbawah{
+            display: inline-block;
+            padding-left: -10px;
+        }
+
+        .dropbawah1{
+            display: inline-block;
+            padding-left: -10px;
+        }
+        .dropbawah1-child1 {
+        display: none;
+        position: absolute;
+        background-color: whitesmoke;
+        min-width: 100px;
+        overflow: hidden;
+        border: 1px solid #3942a8;
+        border-radius: 5px;
+    }
+        
+    .dropbawah-child {
+        display: none;
+        position: absolute;
+        background-color: whitesmoke;
+        min-width: 100px;
+        overflow: hidden;
+        border: 1px solid #3942a8;
+        border-radius: 5px;
+    }
+
+        .dropbawah-child a{
+            color:#3942a8;
+            padding: 10px ;
+            padding-left: 90px;
+            text-decoration: none;
+            display: block;
+            text-align: center;           
+        }
+        .dropbawah1-child1 a{
+            color:#3942a8;
+            padding: 10px ;
+            padding-left: 90px;
+            text-decoration: none;
+            display: block;
+            text-align: center;           
+        }
+
+        .dropbawah:hover .dropbawah-child{
+            display: block; 
+            overflow: hidden;
+        }
+        .h1-background {
+            background-color: #3942a8;
+            width: 100%;
+            background-size: 5px 10px; 
+        }
+       
+        #background-container {
+        position: relative;
+        }
+        #background-image {
+        position: absolute;
+        top: 50px; /* Adjust the top margin as needed */
+        left: -60px; /* Adjust the left margin as needed */
+        width: 1200px;
+        height: auto;
+        z-index: 1; /* Set a higher z-index */
+    }
+
+    #content {
+        position: relative;
+        z-index: 2; /* Set a lower z-index */
+    }
+    /* Reset some default styles */
+    body, h1, h2, p, button {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Style for the dropdown container */
+    .dropdown-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Style for the dropdown button */
+    .dropdown-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Style for the dropdown content */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Style for the dropdown items */
+    .dropdown-item {
+        padding: 12px 16px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+    }
+
+    /* Style for the dropdown items on hover */
+    .dropdown-item:hover {
+        background-color: #ddd;
+    }
+
+        
+    </style>
+</head>
+<body>
+    <a href="\">
+        <img src="{% static 'lm.png' %}" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -150px;padding-left: 10px;position: fixed;z-index: 1000;">
+    </a>
+
+    <div class="pp" style="z-index: 100;">
+        <strong>
+            <ul class="menu-kanan" style="z-index: 100;">
+                <div style="display: block;" style="z-index: 1000;">
+                    {% if user.is_authenticated %}
+                        <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
+                        <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 338px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
+                            <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
+                            <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                        </div>
+                    {% else %}
+                    <a href="{% url 'login' %}">
+                        <button class="hskbutton" ><strong>LOGIN</strong></button>
+                    </a>
+                    {% endif %}
+                    <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                    <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
+                        <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;">
+                            <!--tinggal link ke page yang dituju-->
+                            <a href="{% url 'hsk' 1 %}" style="padding: 10px;">HSK 1</a> 
+                            <a href="{% url 'hsk' 2 %}" style="padding: 10px;">HSK 2</a>
+                            <a href="{% url 'hsk' 3 %}" style="padding: 10px;">HSK 3</a>
+                            <a href="{% url 'hsk' 4 %}" style="padding: 10px;">HSK 4</a>
+                            <a href="{% url 'hsk' 5 %}" style="padding: 10px;">HSK 5</a>
+                            <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
+                        </div>
+                </div>
+            </ul>    
+        </strong>
+    </div>
+    <script>
+        function dropdown(params) {
+            if (params != "show") {
+            document.getElementById("myDropdown").style.display = "none";
+            } else{
+                document.getElementById("myDropdown").style.display = "block";
+            }
+        }
+        // Function to toggle the dropdown content visibility
+        function toggleDropdown(params) {
+            if (params != "show") {
+                document.getElementById("dropdownContent").style.display = "none";
+            } else{
+                document.getElementById("dropdownContent").style.display = "block";
+            }
+        }
+
+        // Function to handle item selection
+        function handleSelection(option) {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = "none";
+
+            // Perform action based on selected option
+            if (option === 'user') {
+                alert("User Name selected");
+                // Add your custom logic for 'User Name' option
+            } else if (option === 'logout') {
+                alert("Logout selected");
+                // Add your custom logic for 'Logout' option
+            }
+        }
+
+    </script>
+    <div style="background-color: #1526E8; width:1200px;height:310.87px; margin: 20px; margin-top: 100px; margin-left: 200px; margin-right: 165px; border-radius: 40px;padding: 30px;">
+        <h1 style="text-align: center;"><strong>{{hsk.judul}}</strong></h1>
+        <h3 style="color: #fefefe;margin: 100px;margin-top: 10px;text-align: center;font-size: 20px;background-color: #1526E8;">{{hsk.deskripsi}}</strong></h3>
+
+    </div>
+
+    
+    <!-- <img src="gbrhsk.jpeg" style="margin-top: 100px;margin-left: 165px; margin-right: 150px;">
+        <h1 style="text-align: center;margin-top: -300px;"><strong>HSK 1</strong></h1>
+        <h3 style="color: #fefefe;margin: 300px;margin-top: 10px;text-align: center;font-size: 20px;">Tes HSK 1 setara dengan tingkat pertama dari hanyu shuiping kaoshi, ujian resmi kemahiran lisan dan tulisan dalam bahasa Mandarin. Siswa harus dapat mengetahui cara menggunakan kata dan frasa yang sopan dalam berbagai situasi dan mendapatkan informasi dari lingkungan publik.
+            <br><strong> Topik-topik yang dibahas meliputi: informasi pribadi, rutinitas sehari-hari, makanan, transportasi, hobi, dan banyak lagi. </strong></h3> -->
+    
+    <h1 style="color: #e8bb15; margin-top: 50px;text-indent: 30px;"><strong>Vocabulary</strong><br>
+    <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 50px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+        <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px;"><strong>Pandarin</strong>
+        <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+            <a href={{hsk.link_pandarin}} target="_blank"><br> 
+                <p style="margin-top: -110px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+            </a>
+        </div>
+    </div>
+
+    <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+        <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>HSK ACADEMY (YOUTUBE)</strong>
+        <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+            <a href={{hsk.link_academy}} target="_blank"><br> 
+                <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+            </a>
+        </div>
+    </div>
+        
+    <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+        <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>DIG MANDARIN</strong>
+        <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+            <a href={{hsk.link_dig}} target="_blank"><br> 
+                <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+            </a>
+        </div>
+    </div>
+
+    <h1 style="color: #e8bb15; margin-top: 50px;text-indent: 30px;"><strong>Listening</strong><br>
+        <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 50px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+            <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px;"><strong>SAMPLE TEST 1</strong>
+            <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                <a href={{hsk.link_audio}} target="_blank"><br> 
+                    <p style="margin-top: -110px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                </a>
+            </div>
+        </div>
+    
+        <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+            <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong> SAMPLE TEST 2</strong>
+            <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                <a href={{hsk.link_audio2}} target="_blank"><br> 
+                    <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                </a>
+            </div>
+        </div>
+            
+        <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+            <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 3</strong>
+            <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                <a href={{hsk.link_audio3}} target="_blank"><br> 
+                    <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                </a>
+            </div>
+        </div>
+
+
+        <h1 style="color: #e8bb15; margin-top: 50px;text-indent: 30px;"><strong>Reading</strong><br>
+            <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 50px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px;"><strong>SAMPLE TEST 1</strong>
+                <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                    <a href={{hsk.link_reading}} target="_blank"><br> 
+                        <p style="margin-top: -110px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                    </a>
+                </div>
+            </div>
+        
+            <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 2</strong>
+                <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                    <a href={{hsk.link_reading2}} target="_blank"><br> 
+                        <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                    </a>
+                </div>
+            </div>
+                
+            <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 3</strong>
+                <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                    <a href={{hsk.link_reading3}} target="_blank"><br> 
+                        <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                    </a>
+                </div>
+            </div>
+    
+    <h1 style="background-color: #3942a8;margin-bottom: 0px;margin-top: 90px;height: 200px;">
+        <center><img src="{% static 'lm.png' %}" width="300px" height="300px" style="margin-top: -70px;"></center>
+    </h1>
+    <p style="color: #e8bb15;text-align: center;z-index: 100; margin-top: -70px;"><strong>© 2024 Learn Mandarin</strong></p>
+</body>
+</html>

@@ -1,130 +1,443 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Heroic Features - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href='{%static "assets/favicon.ico"%}' />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href='{% static "css/styles.css"%}' rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">login</a></li>
-                        {% endif %}
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Header-->
-        <header class="py-5">
-            <div class="container px-lg-5">
-                <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                    <div class="m-4 m-lg-5">
-                        {% if user.is_authenticated %}
-                        <h1 class="display-5 fw-bold">A warm welcome {{request.user}}!</h1>
-                        {% else %}
-                        <h1 class="display-5 fw-bold">A warm welcome!</h1>
-                        {% endif %}
-                        <p class="fs-4">Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?</p>
-                        <a class="btn btn-primary btn-lg" href="#!">Call to action</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <br>
-        <body>
-            <!-- Responsive navbar-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-lg-5">
-                    <p style="color: white;">disini yang tempat materi</p>
-                   
-                </div>
-            </nav>
-        <br>
-        <!-- Page Content-->
-        <section class="pt-4">
-            <div class="container px-lg-5">
-                <!-- Page Features-->
-                <div class="row gx-lg-5">
-                    
-                    {% for hsk in list %}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
+    <title>Learning Mandarin</title>
+    <style>
 
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <a href="#!" style="text-decoration: none; color: black;">
-                            <div class="card bg-light border-0 h-100">
-                                <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i>HSK</i></div>
-                                    <h2 class="fs-4 fw-bold" href="#a">{{hsk.judul}}</h2>
-                                    <p class="mb-0">{{hsk.deskripsi|truncatewords:20}}</p><br>
-                                    <a href="{% url 'hsk' hsk.id %}" ><button style="width: 100px;height: 50px;">link</button></a><br>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+        .styled-link {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #3942a8;
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-                    {% endfor %}
+        .styled-link:hover {
+            background-color: #2980b9;
+        }
 
-                </div>
-            </div>
+        body {
+            background-color: #fefefe;
+            margin: 0; 
+            padding: 0;
+        }
+        h1 {
+            color:whitesmoke;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 80px;
+            overflow: hidden;
+            padding-bottom: -100px;
+        }
+        h3{
+            background-color: #e8bb15;
+            color: #3942a8;
+            font-size: medium;
+            overflow: hidden;
+        }
+        p {
+            color:whitesmoke;
+            font-family:system-ui;
+            font-size:large;
+
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            color:whitesmoke;
+            
+        }
+        li {
+            float: right;
+            display: block;
+            color:whitesmoke;
+            text-align:center;
+            margin: 15px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
         
-        </section>
-        <br>
-        <body>
-            <!-- Responsive navbar-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-lg-5">
-                    <p style="color: white;">populer event</p>
-                   
-                </div>
-            </nav>
-        <br>
-        <section class="pt-4">
-            <div class="container px-lg-5">
-                <!-- Page Features-->
-                <div class="row gx-lg-5">
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <a href="#!" style="text-decoration: none; color: black;">
-                            <div class="card bg-light border-0 h-100">
-                                <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i>HSK</i></div>
-                                    <h2 class="fs-4 fw-bold" href="#a">Fresh new layout</h2>
-                                    <p class="mb-0">With Bootstrap 5, we've created a fresh new layout for this template!</p>
-                                    <a href="#adadw"><button style="width: 100px;height: 50px;">link</button></a><br>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        li a:hover{
+            background-color:#111111;
+            
+        }
+        .vertikal {
+            border-left: 10px solid whitesmoke; 
+            height: 10%; 
+            margin-top: 70px;
+            position: absolute;
+            left: 510px; 
+        }
+        .persegi-panjang{ 
+            height: 90px;
+            width: 1250px;
+            margin-top: 0;
+            position: absolute;
+            background-color: #624166;
+
+        }
+        .tulisan{
+            color: whitesmoke;
+            z-index: 1;
+        }
+        header{
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+        }
+        .pp {
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+            height: 60px;
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            justify-content: flex-end;
+        }
+
         
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src='{% static "js/scripts.js"%}'></script>
-    </body>
+        .menu-kanan1{
+            float: left;
+        }
+        .menu-kanan {
+            text-align: right;
+        }
+        .hskbutton{
+            float: right;
+            display: block;
+            background-color: #3942a8;
+            color:whitesmoke;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align:center;
+            padding-bottom: 10px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+            border:none;
+            cursor: pointer;
+            font-size: large;
+        }
+        .hskbutton:hover{
+            background-color: whitesmoke;
+            color: #3942a8;
+            padding: 20px;
+        }
+        
+        .dropbawah{
+            display: inline-block;
+            padding-left: -10px;
+        }
+        
+    .dropbawah-child {
+        display: none;
+        position: absolute;
+        background-color: whitesmoke;
+        min-width: 100px;
+        overflow: hidden;
+        border: 1px solid #3942a8;
+        border-radius: 5px;
+    }
+
+        .dropbawah-child a{
+            color:#3942a8;
+            padding: 10px ;
+            padding-left: 90px;
+            text-decoration: none;
+            display: block;
+            text-align: center;           
+        }
+
+        .dropbawah:hover .dropbawah-child{
+            display: block; 
+            overflow: hidden;
+        }
+        .h1-background {
+            background-color: #3942a8;
+            width: 100%;
+            background-size: 5px 10px; 
+        }
+        .navbar input[type="search"] {
+            width: 1000px;
+            padding: 10px; 
+            font-size: 16px; 
+        }
+        .navbar button[type="submit"] {
+            padding: 12px; 
+            font-size: 16px; 
+        }
+        #carouselExampleControls {
+            margin-top: 30px; 
+            
+        }
+       
+/* Reset some default styles */
+body, h1, h2, p, button {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Style for the dropdown container */
+    .dropdown-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Style for the dropdown button */
+    .dropdown-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Style for the dropdown content */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Style for the dropdown items */
+    .dropdown-item {
+        padding: 12px 16px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+    }
+
+    /* Style for the dropdown items on hover */
+    .dropdown-item:hover {
+        background-color: #ddd;
+    }
+
+        
+    </style>
+</head>
+<body><a href="">
+    <img src="{% static 'lm.png' %}" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -110px;padding-left: 10px;position: fixed;z-index: 1000;"> 
+    </a>
+
+    <div class="pp" style="z-index: 100;">
+        <strong>
+            <ul class="menu-kanan" style="z-index: 100;">
+                <div style="display: block;" style="z-index: 1000;">
+                    {% if user.is_authenticated %}
+                        <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
+                        <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 338px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
+                            <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
+                            <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                        </div>
+                    {% else %}
+                    <a href="{% url 'login' %}">
+                        <button class="hskbutton" ><strong>LOGIN</strong></button>
+                    </a>
+                    {% endif %}
+                    <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                    <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
+                        <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;">
+                            <!--tinggal link ke page yang dituju-->
+                            <a href="{% url 'hsk' 1 %}" style="padding: 10px;">HSK 1</a> 
+                            <a href="{% url 'hsk' 2 %}" style="padding: 10px;">HSK 2</a>
+                            <a href="{% url 'hsk' 3 %}" style="padding: 10px;">HSK 3</a>
+                            <a href="{% url 'hsk' 4 %}" style="padding: 10px;">HSK 4</a>
+                            <a href="{% url 'hsk' 5 %}" style="padding: 10px;">HSK 5</a>
+                            <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
+                        </div>
+                </div>
+            </ul>    
+        </strong>
+    </div>
+    <script>
+        function dropdown(params) {
+            if (params != "show") {
+            document.getElementById("myDropdown").style.display = "none";
+            } else{
+                document.getElementById("myDropdown").style.display = "block";
+            }
+        }
+        // Function to toggle the dropdown content visibility
+        function toggleDropdown(params) {
+            if (params != "show") {
+                document.getElementById("dropdownContent").style.display = "none";
+            } else{
+                document.getElementById("dropdownContent").style.display = "block";
+            }
+        }
+
+        // Function to handle item selection
+        function handleSelection(option) {
+            var dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = "none";
+
+            // Perform action based on selected option
+            if (option === 'user') {
+                alert("User Name selected");
+                // Add your custom logic for 'User Name' option
+            } else if (option === 'logout') {
+                alert("Logout selected");
+                // Add your custom logic for 'Logout' option
+            }
+        }
+    </script>
+
+    <!--buat yang bagian atas-->
+    <h1 style="background-color: #e8bb15;color: #45486B;width: 100%;font-size: large; margin-top: 60px;padding-top: 10px;padding-bottom: 20px;text-align: center;line-height: 30px;"><strong>
+        青出于蓝而胜于蓝<br>
+        Guru yang baik hasilkan siswa yang kekuatannya di atas guru
+    </strong></h1>
+    <h1 style="background-color: #3942a8; width: 100%;color: #e8bb15; margin-top:-20px;padding-top: 200px;text-indent: 30px; background-size: 100%;padding-bottom: -1000px;height: 400px;">
+        <strong> LEARNING MANDARIN</strong> <br> 
+        <p style="color: #e8bb15;padding-bottom: 0px;">Platform yang menyediakan roadmap untuk belajar HSK mandarin</p>
+        <img src='{% static "lm.png" %}' style="width: 800px;float: right;margin-top: -500px;height: fit-content;margin-right: -190px;">
+    </h1>
+
+    <!--searchbar-->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid" style="position: absolute;padding: 30px;margin-left: 50px;margin-top: -10px;position:relative; z-index: -1;">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search for the event about HSK" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      
+    <!--last viewed-->
+    <h1 style="color: #e8bb15; margin-top: 30px;text-indent: 30px;"><strong>Last Viewed</strong></h1>
+    <div style="background-color: #1526E8; width:1200px;height:310.87px;margin: 20px;margin-top: 30px; border-radius: 40px;padding: 30px;">
+        <h1 style="width: 100%;color: #e8bb15; margin-top:-20px;padding-top: 70px;text-indent: 30px; background-size: 100%;padding-bottom: -1000px;height: 400px;">
+            <strong> LEARNING MANDARIN</strong> <br> 
+            <p style="color: #e8bb15;padding-bottom: 0px;">Platform yang menyediakan roadmap untuk belajar HSK mandarin</p>
+    </div>
+    <!-- <img src="biru.jpeg" width="1200px" height="100%" style="margin: 20px;margin-top: -10px;"> -->
+    <h1 style="color: #e8bb15; margin-top: 30px;text-indent: 30px;"><strong>HSK</strong></h1>
+
+    <!--untuk carousel, tinggal dihubungin ke page hsk-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static '1.png'%}" class="d-block w-100" style="object-fit: cover; padding: 20px;" alt="..." height="450px">
+                <br>
+                <br>
+                <div class="carousel-caption d-none d-md-block" style="">
+                    <a href="{% url 'hsk' 1 %}" class="styled-link">Learn Now</a>
+                </div>
+                <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+            </div>
+
+          <div class="carousel-item">
+                <img src="{% static '2.png'%}" class="d-block w-100" alt="..." height="450px"  style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
+                <br>
+                <br>
+                <br>
+                <div class="carousel-caption d-none d-md-block" style="">
+                    <a href="{% url 'hsk' 2 %}" class="styled-link">Learn Now</a>
+                </div>
+                <p style="color: #111111;text-align: center;margin-top: -10px;">Klik untuk mempelajari lebih lanjut</p>
+          </div>
+          <div class="carousel-item" >
+
+                <img src="{% static '3.png'%}" class="d-block w-100" alt="..." height="450px"  style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
+                <br>
+                <br>
+                <div class="carousel-caption d-none d-md-block" style="">
+                    <a href="{% url 'hsk' 3 %}" class="styled-link">Learn Now</a>
+                </div>
+            <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+          </div>
+          <div class="carousel-item">
+
+                <img src="{% static '4.png'%}" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
+                <br>
+                <br>
+                <div class="carousel-caption d-none d-md-block" style="">
+                    <a href="{% url 'hsk' 4 %}" class="styled-link">Learn Now</a>
+                </div>
+                <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+            </div>
+          <div class="carousel-item" >
+
+
+                <img src="{% static '5.png'%}" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
+                <br>
+                <br>
+                <div class="carousel-caption d-none d-md-block" style="">
+                    <a href="{% url 'hsk' 5 %}" class="styled-link">Learn Now</a>
+                </div>
+            <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+          </div>
+          <div class="carousel-item" >
+
+
+                <img src="{% static '6.png'%}" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
+                <br>
+                <br>
+                <div class="carousel-caption d-none d-md-block" style="">
+                    <a href="{% url 'hsk' 5 %}" class="styled-link">Learn Now</a>
+                </div>
+            <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+          </div>
+        </div>
+
+        <!--button untuk prev ama next di carousel-->
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        </div>
+        
+      </div>
+
+    <!--bagian popular event-->
+    <h1 style="color: #e8bb15; margin-top: 30px;text-indent: 30px;"><strong>Popular Event</strong>
+        <p style="color:#e8bb15;float: right;margin-right:50px;margin-top: 50px;">more...</p>  
+    </h1>
+    <h2><div style="background-color: #e8bb15;margin: 20px;padding: 50px;margin-bottom: -10px;">
+        <h1 style="text-align: left;margin-top: -40px;color: #45486B;font-size: 150px;"><strong>1</strong></h1>
+        <h3 style="text-align: left;margin-top: -100px;font-size: 30px;margin-left: 150px;top: -50px;color: #45486B;"><strong>Name of the Event </strong></h3>
+        <h3 style="text-align: left;margin-top: 10px;font-size: 20px;margin-left: 150px;top: 50px;color: #45486B;">description</h3>
+    </div></h2>
+    <h2><div style="background-color:#45486B;margin-top: 10px;padding: 50px;margin-bottom: -10px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;">
+        <h1 style="text-align: left;margin-top: -40px;color:#e8bb15;font-size: 150px;"><strong>2</strong></h1>
+        <h3 style="text-align: left;margin-top: -100px;font-size: 30px;margin-left: 150px;top: -50px;color: #e8bb15;background-color: #45486B;"><strong>Name of the Event </strong></h3>
+        <h3 style="text-align: left;margin-top: 10px;font-size: 20px;margin-left: 150px;top: 50px;color: #e8bb15;background-color: #45486B;">description</h3>
+    </div></h2>
+    <h2><div style="background-color: #e8bb15;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;padding: 50px;margin-bottom: -10px;margin-top: -20px;">
+        <h1 style="text-align: left;margin-top: -40px;color: #45486B;font-size: 150px;"><strong>3</strong></h1>
+        <h3 style="text-align: left;margin-top: -100px;font-size: 30px;margin-left: 150px;top: -50px;color: #45486B;"><strong>Name of the Event </strong></h3>
+        <h3 style="text-align: left;margin-top: 10px;font-size: 20px;margin-left: 150px;top: 50px;color: #45486B;">description</h3>
+    </div></h2>
+
+    <!--bagian footer-->
+    <h1 style="background-color: #3942a8;margin-bottom: 0px;margin-top: 90px;height: 200px;">
+        <center><img src='{% static "lm.png" %}' width="300px" height="300px" style="margin-top: -70px;"></center>
+    </h1>
+    <p style="color: #e8bb15;text-align: center;z-index: 100; margin-top: -70px;"><strong>© 2024 Learn Mandarin</strong></p>
+</body>
 </html>
