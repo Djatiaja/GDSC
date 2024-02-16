@@ -1,0 +1,474 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="DEESCRIPTION" content="roadmap pendaftaran kuliah di china">
+        <title>Roadmap</title>
+        <link rel="stylesheet" href="roadmap_cs.css">
+
+        <style>
+            body {
+                background-color: #fefefe;
+                margin: 0; 
+                padding: 0;
+            }
+            header {
+                background-color: #e8bb15;
+            }
+            h1 {
+                color:whitesmoke;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-size: 80px;
+                overflow: hidden;
+                padding-bottom: -100px;
+            }
+            h3{
+                background-color: #e8bb15;
+                color: #3942a8;
+                font-size: medium;
+                overflow: hidden;
+            }
+            /* p {
+                color:whitesmoke;
+                font-family:system-ui;
+                font-size:large;
+            } */
+            /* ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                overflow: hidden;
+                color:whitesmoke; 
+            } */
+            /* li {
+                float: right;
+                display: block;
+                color:whitesmoke;
+                text-align:center;
+                margin: 15px;
+                margin-top: 20px;
+                text-decoration: none;
+            } */
+            
+            li a:hover{
+                background-color:#111111;
+                
+            }
+            .vertikal {
+                border-left: 10px solid whitesmoke; 
+                height: 10%; 
+                margin-top: 70px;
+                position: absolute;
+                left: 510px; 
+            }
+            .persegi-panjang{ 
+                height: 90px;
+                width: 1250px;
+                margin-top: 0;
+                position: absolute;
+                background-color: #624166;
+    
+            }
+            .tulisan{
+                color: whitesmoke;
+                z-index: 1;
+            }
+
+            .pp {
+                background-color: #3942a8;
+                color: whitesmoke;
+                display: flex;
+                height: 60px;
+                position: fixed; 
+                width: 100%;
+                top: 0; 
+                justify-content: flex-end;
+            }
+    
+            
+            .menu-kanan1{
+                float: left;
+            }
+            .menu-kanan {
+                text-align: right;
+                /* margin-top: 20px; */
+            }
+            .hskbutton{
+                float: right;
+                display: block;
+                background-color: #3942a8;
+                color:whitesmoke;
+                font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                text-align:center;
+                /* margin-top: -20px; */
+                padding-left: 20px;
+                padding-right: 20px;
+                text-decoration: none;
+                border:none;
+                cursor: pointer;
+                font-size: large;
+            }
+            .hskbutton:hover{
+                background-color: whitesmoke;
+                color: #3942a8;
+                padding-right: 20px;
+                padding-left: 20px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-top: -20px;
+            }
+            
+            .dropbawah{
+                display: inline-block;
+                padding-left: -10px;
+            }
+            
+        .dropbawah-child {
+            display: none;
+            position: absolute;
+            background-color: whitesmoke;
+            min-width: 100px;
+            overflow: hidden;
+            border: 1px solid #3942a8;
+            border-radius: 5px;
+        }
+    
+            .dropbawah-child a{
+                color:#3942a8;
+                padding: 10px ;
+                padding-left: 90px;
+                text-decoration: none;
+                display: block;
+                text-align: center;           
+            }
+    
+            .dropbawah:hover .dropbawah-child{
+                display: block; 
+                overflow: hidden;
+            }
+            .h1-background {
+                background-color: #3942a8;
+                width: 100%;
+                background-size: 5px 10px; 
+            }
+           
+            #background-container {
+            position: relative;
+            }
+            #background-image {
+            position: absolute;
+            top: 50px; /* Adjust the top margin as needed */
+            left: -60px; /* Adjust the left margin as needed */
+            width: 1200px;
+            height: auto;
+            z-index: 1; /* Set a higher z-index */
+        }
+    
+        #content {
+            position: relative;
+            z-index: 2; /* Set a lower z-index */
+        }
+        .naikin{
+            margin-top: 100px;
+        }
+        .boxkuning{
+            background-color:#e8bb15;
+            border-radius: 30px;
+            margin-left: 90px;
+            padding: 10px;
+        }
+        .boxpurple{
+            background-color:#45486b;
+            border-radius: 30px;
+            margin-left: 90px;
+            padding: 10px;
+        }
+        .boxpandarin{
+            background-color:#e8bb15;
+            border-radius: 80px;
+            margin-left: 60px;
+            padding: 10px;
+            width: 10px;
+        }
+        .boxpandarin1{
+            background-color:#45486b;
+            border-radius: 30px;
+            margin-left: 70px;
+            padding: 10px;
+            width: 1150px;
+            height: 300px;
+            margin-top: 40px;
+        }
+        .boxhsk{
+            background-color:#45486b;
+            border-radius: 80px;
+            margin-left: 60px;
+            padding: 10px;
+            width: 10px;
+        }
+        .boxhsk1{
+            background-color:#e8bb15;
+            border-radius: 30px;
+            margin-left: 70px;
+            padding: 10px;
+            width: 1150px;
+            height: 300px;
+            margin-top: 40px;
+        }
+        .boxkotakgedebiru{
+            background-color:#3942a8;
+            border-radius: 30px;
+            margin-left: 70px;
+            padding: 10px;
+            width: 1150px;
+            height: 300px;
+            margin-top: 40px;
+        }
+        .boxkotakkecilkuning{
+            background-color:#e8bb15;
+            border-radius: 80px;
+            margin-left: 60px;
+            padding: 10px;
+            width: 10px;
+        }
+        .boxkotakgedekuning{
+            background-color:#e8bb15;
+            border-radius: 30px;
+            margin-left: 70px;
+            padding: 10px;
+            width: 1150px;
+            height: 300px;
+            margin-top: 40px;
+        }
+        .boxkotakkecilbiru{
+            background-color:#3942a8;
+            border-radius: 80px;
+            margin-left: 60px;
+            padding: 10px;
+            width: 10px;
+        }
+        .boxkotakkecilputih{
+            background-color:#fefefe;
+            border-radius: 80px;
+            margin-left: 60px;
+            padding: 10px;
+            width: 10px;
+        }
+      
+/* Reset some default styles */
+body, h1, h2, p, button {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Style for the dropdown container */
+    .dropdown-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Style for the dropdown button */
+    .dropdown-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    /* Style for the dropdown content */
+    .dropdown-content {
+        margin-top: -20px;
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+        
+    }
+
+    /* Style for the dropdown items */
+    .dropdown-item {
+        padding: 12px 16px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+    }
+    
+    /* Style for the dropdown items on hover */
+    .dropdown-item:hover {
+        background-color: #ddd;
+    }
+
+    
+        </style>
+    </head>
+    <body>
+    
+        <a href="/">
+        <img src="{% static 'lm.png' %}" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 1000;" class="logo"> 
+        </a>
+        <div class="pp" style="z-index: 100;">
+            <strong>
+                <ul class="menu-kanan" style="z-index: 100; ">
+                    <div style="display: block;" style="z-index: 1000;">
+                        {% if request.user.is_authenticated %}
+                            <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
+                            <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 338px;margin-top: 43px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
+                                <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
+                                <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                            </div>
+                        {% else %}
+                        <a href="{% url 'login' %}">
+                            <button class="hskbutton" ><strong>LOGIN</strong></button>
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'about' %}">
+                            <button class="hskbutton"><strong>ABOUT US</strong></button>
+                        </a>
+                        <a href="{% url 'roadmap' %}">
+    
+                            <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                        </a>
+                        <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
+                            <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px; margin-top: 43px;">
+                                <!--tinggal link ke page yang dituju-->
+                                <a href="{% url 'hsk' 1 %}" style="padding: 10px;">HSK 1</a> 
+                                <a href="{% url 'hsk' 2 %}" style="padding: 10px;">HSK 2</a>
+                                <a href="{% url 'hsk' 3 %}" style="padding: 10px;">HSK 3</a>
+                                <a href="{% url 'hsk' 4 %}" style="padding: 10px;">HSK 4</a>
+                                <a href="{% url 'hsk' 5 %}" style="padding: 10px;">HSK 5</a>
+                                <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
+                            </div>
+                    </div>
+                </ul>    
+            </strong>
+        </div>
+        <script>
+            function dropdown(params) {
+                if (params != "show") {
+                document.getElementById("myDropdown").style.display = "none";
+                } else{
+                    document.getElementById("myDropdown").style.display = "block";
+                }
+            }
+            // Function to toggle the dropdown content visibility
+            function toggleDropdown(params) {
+                if (params != "show") {
+                    document.getElementById("dropdownContent").style.display = "none";
+                } else{
+                    document.getElementById("dropdownContent").style.display = "block";
+                }
+            }
+    
+            // Function to handle item selection
+            function handleSelection(option) {
+                var dropdownContent = document.getElementById("dropdownContent");
+                dropdownContent.style.display = "none";
+    
+                // Perform action based on selected option
+                if (option === 'user') {
+                    alert("User Name selected");
+                    // Add your custom logic for 'User Name' option
+                } else if (option === 'logout') {
+                    alert("Logout selected");
+                    // Add your custom logic for 'Logout' option
+                }
+            }
+        </script>
+
+
+            <!-- <div class="naikin"> -->
+            <!-- <div class="boxkuning" style="margin-top: 400px;margin-left: 200px; margin-right: 150px;margin-bottom: 500px;height: 300px;">
+            <h1 style="text-align: center;margin-top: 15px;margin-left: 10px;margin-right: 10px;"><strong>HSK 1</strong></h1>
+            <h3 style="color: #fefefe;margin-top: 10px;text-align: center;font-size: 20px;margin-left: 20px;margin-bottom: 100px;background-color:transparent;margin-right: 20px;">Tes HSK 1 setara dengan tingkat pertama dari hanyu shuiping kaoshi, ujian resmi kemahiran lisan dan tulisan dalam bahasa Mandarin. Siswa harus dapat mengetahui cara menggunakan kata dan frasa yang sopan dalam berbagai situasi dan mendapatkan informasi dari lingkungan publik.
+                <br><strong> Topik-topik yang dibahas meliputi: informasi pribadi, rutinitas sehari-hari, makanan, transportasi, hobi, dan banyak lagi. </strong></h3>
+            </div> -->
+            </div>
+            
+            <div style="background-color:#3942a8; padding:100px;margin-top: 0; margin-left: -80px;">
+            <h1 style="color:#e8bb15; font-family:Serif;margin-top: 20px;">ROADMAP</h1>
+            
+            </div>
+        </header>
+
+        <div style="background-color: #e8bb15;">
+
+            <main>
+                <article>
+                    <section>
+                        <h2><big>Kenali Universitas Tiongkok</big></h2>
+                        <p>Carilah informasi mengenai berbagai universitas dan program-program di tiongkok yang dapat menjadi pilihan</p>
+                        <p>Berikut adalah beberapa universitas di tiongkok</p>
+                        <ul>
+                            <li><a href="https://www.zju.edu.cn/english/">Zhejiang University</a></li>
+                            <li><a href="https://english.pku.edu.cn/">Peking University</a></li>
+                            <li><a href="https://www.xjtlu.edu.cn/en">Xi'an Jiatong-Liverpoo University</a></li>
+                            <li><a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a></li>
+                            <li><a href="https://en.xmu.edu.cn/main.htm">Xiamen University</a></li>
+                            <li><a href="http://english.bit.edu.cn/">Beiking Institute of Technology</a></li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h2><big>Tiga Cara Mendaftar ke Universitas Tiongkok</big></h2>
+                        <ol>
+                            <li><h3>Pendaftaran Secara Langsung dari Website Universitas</h3></li>
+                            <ol type="a">
+                                <li>Carilah website resmi universitas</li>
+                                <br/>
+                                <li>Cari tempat pendaftaran di website dan kirimkan pendaftaran</li>
+                                <br/>
+                                <ul>
+                                    <li>Pendaftaran online</li>
+                                    <p>Pertama-tama, isi formulir pendaftaran secara online, lalu unggah dokumen yang diperlukan (beberapa dokumen perlu disahkan secara resmi) dan membayar biaya pendaftaran (umumnya Rp0-2,500,000)</p>
+                                    <br>
+                                    <li>Tidak ada pendaftaran online</li>
+                                    <p> Lihat prospektus penerimaan mahasiswa baru universitas. Unduh dan isi formulir pendaftaran, dan siapkan dokumen-dokumen yang dibutuhkan (beberapa dokumen perlu disahkan secara resmi), membayar biaya pendaftaran (umumnya Rp0-2,500,000). Setelah itu, kirim dokumen yang diperlukan dan bukti pembayaran ke universitas</p>
+                                </ul>
+                                <li>Ikuti wawancara atau tes yang diperlukan (beberapa universitas)</li>
+                                <br>
+                                <li>Menindaklanjuti hasil pendaftaran. Umumnya universitas akan memberikan hasil melalui email</li>
+                                <br/>
+                                <li>Lakukan pembayaran (beberapa universitas)</li>
+                                <br/>
+                                <li>Menindaklanjuti pemberitahuan penerimaan dan formulir JW202</li>
+                                <br/>
+                                <li>Ajukan permohonan visa pelajar X1 atau X2 pada kedutaan setempat</li>
+                                <br/>
+                                <li>Datang ke China, lakukan regristrasi pada universitas, dan mulai kelas</li>
+                            </ol>
+                            
+                            <li><h3>Pengaftaran Melalui Agen Lokal</h3></li>
+                            <ol type="a">
+                            <li>Konsultasi dengan agen lokal, mereka akan merekomendasikan universitas China yang sesuai.</li>
+                            <br/>
+                            <li>Lakukan pembayaran</li>
+                            <br/>
+                            <li>Setelah pembayaran, agen akan beranggungjawab atas semua pelayanan</li>
+                            <br>
+                        </ol>
+                    </ol>
+                </section>
+            </article>
+
+            
+            
+        </main>
+    </div>
+    <h1 style="background-color: #3942a8;margin-bottom: 0px;margin-top: 90px;height: 200px; margin-top: -16px;">
+        <center><img src='{% static "lm.png" %}' width="300px" height="300px" style="margin-top: -70px;"></center>
+    </h1>
+    <p style="color: #e8bb15;text-align: center;z-index: 100; margin-top: -70px;"><strong>© 2024 Learn Mandarin</strong></p>
+
+</body>
+</html>
+    

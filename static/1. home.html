@@ -1,26 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
-    <title>Learning Mandarin</title>
+    <title>LEARNING MANDARIN</title>
     <style>
-
-        .styled-link {
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            background-color: #3942a8;
-            color: #ffffff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .styled-link:hover {
-            background-color: #2980b9;
-        }
-
         body {
             background-color: #fefefe;
             margin: 0; 
@@ -178,92 +162,33 @@
             margin-top: 30px; 
             
         }
-       
-/* Reset some default styles */
-body, h1, h2, p, button {
-        margin: 0;
-        padding: 0;
-    }
+       .turun{
+        margin-top: 100px;
+       }
+       .turun1{
+        margin-top: -20px;
+       }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    /* Style for the dropdown container */
-    .dropdown-container {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Style for the dropdown button */
-    .dropdown-button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-    /* Style for the dropdown content */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    /* Style for the dropdown items */
-    .dropdown-item {
-        padding: 12px 16px;
-        display: block;
-        text-decoration: none;
-        color: #333;
-        cursor: pointer;
-    }
-
-    /* Style for the dropdown items on hover */
-    .dropdown-item:hover {
-        background-color: #ddd;
-    }
-
-        
     </style>
 </head>
-<body><a href="">
-    <img src="{% static 'lm.png' %}" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -110px;padding-left: 10px;position: fixed;z-index: 1000;"> 
-    </a>
+<body>
+    <img src="lm.png" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -110px;padding-left: 10px;position: fixed;z-index: 1000;">
 
     <div class="pp" style="z-index: 100;">
         <strong>
             <ul class="menu-kanan" style="z-index: 100;">
                 <div style="display: block;" style="z-index: 1000;">
-                    {% if request.user.is_authenticated %}
-                        <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
-                        <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 338px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
-                            <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
-                            <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
-                        </div>
-                    {% else %}
-                    <a href="{% url 'login' %}">
-                        <button class="hskbutton" ><strong>LOGIN</strong></button>
-                    </a>
-                    {% endif %}
                     <button class="hskbutton"><strong>ABOUT US</strong></button>
-                    <a href="{% url 'roadmap' %}">
-
-                        <button class="hskbutton" ><strong>ROADMAP</strong></button>
-                    </a>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
                     <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
                         <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;">
                             <!--tinggal link ke page yang dituju-->
-                            <a href="{% url 'hsk' 1 %}" style="padding: 10px;">HSK 1</a> 
-                            <a href="{% url 'hsk' 2 %}" style="padding: 10px;">HSK 2</a>
-                            <a href="{% url 'hsk' 3 %}" style="padding: 10px;">HSK 3</a>
-                            <a href="{% url 'hsk' 4 %}" style="padding: 10px;">HSK 4</a>
-                            <a href="{% url 'hsk' 5 %}" style="padding: 10px;">HSK 5</a>
-                            <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 1</a> 
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 2</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 3</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 4</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 5</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 6</a>
                         </div>
                 </div>
             </ul>    
@@ -277,40 +202,17 @@ body, h1, h2, p, button {
                 document.getElementById("myDropdown").style.display = "block";
             }
         }
-        // Function to toggle the dropdown content visibility
-        function toggleDropdown(params) {
-            if (params != "show") {
-                document.getElementById("dropdownContent").style.display = "none";
-            } else{
-                document.getElementById("dropdownContent").style.display = "block";
-            }
-        }
-
-        // Function to handle item selection
-        function handleSelection(option) {
-            var dropdownContent = document.getElementById("dropdownContent");
-            dropdownContent.style.display = "none";
-
-            // Perform action based on selected option
-            if (option === 'user') {
-                alert("User Name selected");
-                // Add your custom logic for 'User Name' option
-            } else if (option === 'logout') {
-                alert("Logout selected");
-                // Add your custom logic for 'Logout' option
-            }
-        }
     </script>
 
     <!--buat yang bagian atas-->
-    <h1 style="background-color: #e8bb15;color: #45486B;width: 100%;font-size: large; margin-top: 60px;padding-top: 10px;padding-bottom: 20px;text-align: center;line-height: 30px;"><strong>
+    <h1 style="background-color: #e8bb15;color: #45486B;width: 100%;font-size: large; margin-top: 60px;padding-top: 10px;padding-bottom: 10px;text-align: center;line-height: 30px;"><strong>
         青出于蓝而胜于蓝<br>
         Guru yang baik hasilkan siswa yang kekuatannya di atas guru
     </strong></h1>
     <h1 style="background-color: #3942a8; width: 100%;color: #e8bb15; margin-top:-20px;padding-top: 200px;text-indent: 30px; background-size: 100%;padding-bottom: -1000px;height: 400px;">
         <strong> LEARNING MANDARIN</strong> <br> 
         <p style="color: #e8bb15;padding-bottom: 0px;">Platform yang menyediakan roadmap untuk belajar HSK mandarin</p>
-        <img src='{% static "lm.png" %}' style="width: 800px;float: right;margin-top: -500px;height: fit-content;margin-right: -190px;">
+        <img src="lm.png" style="width: 800px;float: right;margin-top: -500px;height: fit-content;margin-right: -190px;">
     </h1>
 
     <!--searchbar-->
@@ -325,85 +227,44 @@ body, h1, h2, p, button {
       
     <!--last viewed-->
     <h1 style="color: #e8bb15; margin-top: 30px;text-indent: 30px;"><strong>Last Viewed</strong></h1>
-    <div style="background-color: #1526E8; width:1200px;height:310.87px;margin: 20px;margin-top: 30px; border-radius: 40px;padding: 30px;">
-        <h1 style="width: 100%;color: #e8bb15; margin-top:-20px;padding-top: 70px;text-indent: 30px; background-size: 100%;padding-bottom: -1000px;height: 400px;">
-            <strong> LEARNING MANDARIN</strong> <br> 
-            <p style="color: #e8bb15;padding-bottom: 0px;">Platform yang menyediakan roadmap untuk belajar HSK mandarin</p>
-    </div>
-    <!-- <img src="biru.jpeg" width="1200px" height="100%" style="margin: 20px;margin-top: -10px;"> -->
+    <img src="biru.jpeg" width="1200px" height="100%" style="margin: 20px;margin-top: -10px;">
     <h1 style="color: #e8bb15; margin-top: 30px;text-indent: 30px;"><strong>HSK</strong></h1>
 
     <!--untuk carousel, tinggal dihubungin ke page hsk-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
+
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static '1.png'%}" class="d-block w-100" style="object-fit: cover; padding: 20px;" alt="..." height="450px">
-                <br>
-                <br>
-                <div class="carousel-caption d-none d-md-block" style="">
-                    <a href="{% url 'hsk' 1 %}" class="styled-link">Learn Now</a>
-                </div>
-                <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+            <div class="carousel-item active" style="z-index: -1;">
+                <a href="https://youtu.be/Yfniz6_YLMM?si=XkaNUZQJwIQcC0mf"><img src="1.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;"/>
+                    <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
             </div>
-
-          <div class="carousel-item">
-                <img src="{% static '2.png'%}" class="d-block w-100" alt="..." height="450px"  style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
-                <br>
-                <br>
-                <br>
-                <div class="carousel-caption d-none d-md-block" style="">
-                    <a href="{% url 'hsk' 2 %}" class="styled-link">Learn Now</a>
-                </div>
-                <p style="color: #111111;text-align: center;margin-top: -10px;">Klik untuk mempelajari lebih lanjut</p>
+          <div class="carousel-item" style="z-index: -1;">
+            <a href="https://youtu.be/Yfniz6_YLMM?si=XkaNUZQJwIQcC0mf">
+                <img src="2.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;">
+                <p style="color: #111111; text-align: center; margin-top: -10px;">Klik gambar untuk mempelajari lebih lanjut</p>
+            </a>
+        </div>
+        
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="3.png" class="d-block w-100" alt="..." height="450px"  style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
           </div>
-          <div class="carousel-item" >
-
-                <img src="{% static '3.png'%}" class="d-block w-100" alt="..." height="450px"  style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
-                <br>
-                <br>
-                <div class="carousel-caption d-none d-md-block" style="">
-                    <a href="{% url 'hsk' 3 %}" class="styled-link">Learn Now</a>
-                </div>
-            <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="4.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
           </div>
-          <div class="carousel-item">
-
-                <img src="{% static '4.png'%}" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
-                <br>
-                <br>
-                <div class="carousel-caption d-none d-md-block" style="">
-                    <a href="{% url 'hsk' 4 %}" class="styled-link">Learn Now</a>
-                </div>
-                <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
-            </div>
-          <div class="carousel-item" >
-
-
-                <img src="{% static '5.png'%}" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
-                <br>
-                <br>
-                <div class="carousel-caption d-none d-md-block" style="">
-                    <a href="{% url 'hsk' 5 %}" class="styled-link">Learn Now</a>
-                </div>
-            <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="5.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
           </div>
-          <div class="carousel-item" >
-
-
-                <img src="{% static '6.png'%}" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;" onclick = "()=>window.location.href='https://www.youtube.com/watch?v=-KaZAYFEYf8&list=RDzStYh2eHOWk&index=6'">
-                <br>
-                <br>
-                <div class="carousel-caption d-none d-md-block" style="">
-                    <a href="{% url 'hsk' 5 %}" class="styled-link">Learn Now</a>
-                </div>
-            <p style="color: #111111;text-align: center;">Klik untuk mempelajari lebih lanjut</p>
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="6.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
           </div>
         </div>
-
         <!--button untuk prev ama next di carousel-->
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -426,20 +287,28 @@ body, h1, h2, p, button {
         <h3 style="text-align: left;margin-top: -100px;font-size: 30px;margin-left: 150px;top: -50px;color: #45486B;"><strong>Name of the Event </strong></h3>
         <h3 style="text-align: left;margin-top: 10px;font-size: 20px;margin-left: 150px;top: 50px;color: #45486B;">description</h3>
     </div></h2>
-    <h2><div style="background-color:#45486B;margin-top: 10px;padding: 50px;margin-bottom: -10px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;">
+    <div class="turun">
+    <img src="image-removebg-preview (22).png" width="60px" height="70px" style="margin-top: -400px;margin-left: 1020px;margin-bottom: 0px;">
+</div>
+    <h2><div style="background-color:#45486B;margin-top: -100px;padding: 50px;margin-bottom: -10px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;">
         <h1 style="text-align: left;margin-top: -40px;color:#e8bb15;font-size: 150px;"><strong>2</strong></h1>
         <h3 style="text-align: left;margin-top: -100px;font-size: 30px;margin-left: 150px;top: -50px;color: #e8bb15;background-color: #45486B;"><strong>Name of the Event </strong></h3>
         <h3 style="text-align: left;margin-top: 10px;font-size: 20px;margin-left: 150px;top: 50px;color: #e8bb15;background-color: #45486B;">description</h3>
     </div></h2>
-    <h2><div style="background-color: #e8bb15;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;padding: 50px;margin-bottom: -10px;margin-top: -20px;">
+    <div class="turun">
+    <img src="tampilan_untuk_event_yang_ada-removebg-preview.png" width="100px" height="80px" style="margin-top: -400px;margin-left: 1000px;margin-bottom: 0px;">
+</div>
+    <h2><div style="background-color: #e8bb15;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;padding: 50px;margin-bottom: -10px;margin-top: -110px;">
         <h1 style="text-align: left;margin-top: -40px;color: #45486B;font-size: 150px;"><strong>3</strong></h1>
         <h3 style="text-align: left;margin-top: -100px;font-size: 30px;margin-left: 150px;top: -50px;color: #45486B;"><strong>Name of the Event </strong></h3>
         <h3 style="text-align: left;margin-top: 10px;font-size: 20px;margin-left: 150px;top: 50px;color: #45486B;">description</h3>
     </div></h2>
-
+    <div class="turun">
+    <img src="image-removebg-preview (22).png" width="60px" height="70px" style="margin-top: -400px;margin-left: 1020px;margin-bottom: 0px;">
+    </div>
     <!--bagian footer-->
     <h1 style="background-color: #3942a8;margin-bottom: 0px;margin-top: 90px;height: 200px;">
-        <center><img src='{% static "lm.png" %}' width="300px" height="300px" style="margin-top: -70px;"></center>
+        <center><img src="lm.png" width="300px" height="300px" style="margin-top: -70px;"></center>
     </h1>
     <p style="color: #e8bb15;text-align: center;z-index: 100; margin-top: -70px;"><strong>© 2024 Learn Mandarin</strong></p>
 </body>

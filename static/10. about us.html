@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
+    <title>About Us</title>
+    <style>
+        body{
+            margin: 0px;
+            background-color: #3942a8;
+            padding: 0;
+        }
+        .backgroundimg{
+            width: 100pw;
+            height: 300px;
+            background-color: #e8bb15;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            z-index: 0;
+        }
+        .circle{
+            width: 300px;
+            height: 300px;
+            background-color: rgb(140, 30, 168);
+            border-radius: 50%;
+            margin-left: -100px;
+            margin-right: 50%;
+            position: relative;
+            z-index: 5;
+        }
+        .box{
+            width: 1000px;
+            height: 330px;
+            margin: 20px;
+            background-color: aliceblue;
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+            margin-left: -500px;
+            border-radius: 1000px;
+
+        }
+        .box2{
+            width: 30px;
+            height: 100px;
+            margin-top: -150px;
+            z-index: 1000;
+            position:absolute;
+            background-color: aliceblue;
+            margin-left: 530px;
+        }
+        .boxprofil{
+            width: 375px;
+            height: 500px;
+            margin: 20px;
+            background-color: rgb(99, 161, 215);
+            position: relative;
+            z-index: 1;
+            margin-top: 60px;
+            margin-left: 45px;
+            border-radius: 80px;
+            margin-right: 30px;
+        }
+        .boxprofil1{
+            width: 350px;
+            height: 300px;
+            margin: 20px;
+            background-color: rgb(255, 255, 255);
+            position: relative;
+            z-index: 1;
+            margin-top: 340px;
+            margin-left: 45px;
+            border-radius: 80px;
+            margin-right: 30px;
+        }
+        h1 {
+            color:whitesmoke;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 80px;
+            overflow: hidden;
+            padding-bottom: -100px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            color:whitesmoke;
+            
+        }
+        li {
+            float: right;
+            display: block;
+            color:whitesmoke;
+            text-align:center;
+            margin: 15px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        
+        li a:hover{
+            background-color:#111111;
+            
+        }
+        .vertikal {
+            border-left: 10px solid whitesmoke; 
+            height: 10%; 
+            margin-top: 70px;
+            position: absolute;
+            left: 510px; 
+        }
+        .persegi-panjang{ 
+            height: 90px;
+            width: 1250px;
+            margin-top: 0;
+            position: absolute;
+            background-color: #624166;
+
+        }
+        .tulisan{
+            color: whitesmoke;
+            z-index: 1;
+        }
+        header{
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+        }
+        .pp {
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+            height: 60px;
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            justify-content: flex-end;
+        }
+
+        
+        .menu-kanan1{
+            float: left;
+        }
+        .menu-kanan {
+            text-align: right;
+        }
+        .hskbutton{
+            float: right;
+            display: block;
+            background-color: #3942a8;
+            color:whitesmoke;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align:center;
+            padding-bottom: 10px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+            border:none;
+            cursor: pointer;
+            font-size: large;
+        }
+        .hskbutton:hover{
+            background-color: whitesmoke;
+            color: #3942a8;
+            padding: 20px;
+        }
+        
+        .dropbawah{
+            display: inline-block;
+            padding-left: -10px;
+        }
+        
+    .dropbawah-child {
+        display: none;
+        position: absolute;
+        background-color: whitesmoke;
+        min-width: 100px;
+        overflow: hidden;
+        border: 1px solid #3942a8;
+        border-radius: 5px;
+    }
+
+        .dropbawah-child a{
+            color:#3942a8;
+            padding: 10px ;
+            padding-left: 90px;
+            text-decoration: none;
+            display: block;
+            text-align: center;           
+        }
+
+        .dropbawah:hover .dropbawah-child{
+            display: block; 
+            overflow: hidden;
+        }
+        .h1-background {
+            background-color: #3942a8;
+            width: 100%;
+            background-size: 5px 10px; 
+        }
+        .navbar input[type="search"] {
+            width: 1000px;
+            padding: 10px; 
+            font-size: 16px; 
+        }
+        .navbar button[type="submit"] {
+            padding: 12px; 
+            font-size: 16px; 
+        }
+        #carouselExampleControls {
+            margin-top: 30px; 
+            
+        }
+       
+
+    </style>
+</head>
+<body>
+    <img src="lm.png" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 50000000000000000000000000;">
+
+    <div class="pp" style="z-index: 100000000;">
+        <strong>
+            <ul class="menu-kanan" style="z-index: 100;">
+                <div style="display: block;" style="z-index: 1000;">
+                    <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                    <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
+                        <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;">
+                            <!--tinggal link ke page yang dituju-->
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 1</a> 
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 2</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 3</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 4</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 5</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 6</a>
+                        </div>
+                </div>
+            </ul>    
+        </strong>
+    </div>
+    <script>
+        function dropdown(params) {
+            if (params != "show") {
+            document.getElementById("myDropdown").style.display = "none";
+            } else{
+                document.getElementById("myDropdown").style.display = "block";
+            }
+        }
+    </script>
+    </style>
+
+    <div class="backgroundimg"> 
+        <h1 style="color: black;font-size: 200px;text-align: center;padding: 75px;margin: 0px;"><strong>ABOUT US</strong></h1>
+    </div>
+    <div class="box">
+    </div>
+    <div class="circle" style="margin-top:-337px;margin-left: 180px;position: absolute;">
+    <img src="lm.png" width="500px" height="500px" style="margin-top: -90px;margin-left: -90px;">
+    </div>
+    <h2 style="color: whitesmoke;font-size: 70px;margin-left: 580px;margin-top: -340px;">Learning Mandarin</h2>
+    <div class="box2"></div>
+    <p style="color: whitesmoke;margin-left: 590px;margin-right: 90px;font-size: 27px;margin-top: -30px;text-align: justify;">Learning Mandarin adalah platform yang menyediakan roadmap untuk belajar HSK mandarin serta platform yang mengumpulkan semua materi untuk belajar HSK. Platform ini digagas sejak tahun 2023 dan dibuat oleh 3 Mahasiswa D4 Teknologi Rekayasa Perangkat Lunak UGM, yaitu Edeline, Damarjati, dan Gattha</p>
+    <h4 style="color: whitesmoke;font-size: 60px;text-align: center;margin-top: 100px;margin-bottom: 0px;">THE TEAM</h2>
+    
+        <div class="boxprofil">
+    <div class="boxprofil" style="margin-left: 400px;"></div>
+    <div class="boxprofil" style="margin-left: 800px; margin-top: -520px;margin-right: -30px;"></div>
+    <div class="boxprofil1" style="margin-left: 413px;margin-top: -510px;margin-right: -30px;z-index: 1000;position: absolute;"></div>
+    <div class="boxprofil1" style="margin-left: 15px; margin-top: -510px;margin-right: -30px;z-index: 1000;position: absolute;"></div>
+    <div class="boxprofil1" style="margin-left: 813px;margin-top: -510px;margin-right: -400px;z-index: 1000;position: absolute;"></div>
+    </div>
+    <img src="image-removebg-preview (24).png" width="700px" height="700px" style="margin-top: -700px;z-index: 1000;position: absolute;margin-left: -100px;">
+    <img src="image-removebg-preview (24).png" width="700px" height="700px" style="margin-top: -700px;z-index: 1000;position: absolute;margin-left: 300px;">
+    <img src="image-removebg-preview (24).png" width="700px" height="700px" style="margin-top: -700px;z-index: 1000;position: absolute;margin-left: 500px;">
+    <h3 style="color: black;font-size: medium;margin-left: 200px;z-index: 30000;position: absolute;margin-top: -200px;">Nama</h3>
+    <h3 style="color: black;font-size: medium;margin-left: 1000px;z-index: 30000;position: absolute;margin-top: -200px;">Nama</h3>
+    <h3 style="color: black;font-size: medium;margin-left: 600px;z-index: 30000;position: absolute;margin-top: -200px;">Nama</h3>
+    <p style="color: black;font-size: medium;margin-left: 1000px;z-index: 30000;position: absolute;margin-top: -90px;">deskripsi singkat</p>
+    <p style="color: black;font-size: medium;margin-left: 600px;z-index: 30000;position: absolute;margin-top: -90px;">deskripsi singkat</p>
+    <p style="color: black;font-size: medium;margin-left: 150px;z-index: 30000;position: absolute;margin-top: -90px;">deskripsi singkat</p>
+
+    <h1 style="background-color: #e8bb15;margin-bottom: 0px;margin-top: 90px;height: 200px;">
+        <center><img src="lmmm-removebg-preview.png" width="230px" height="150px" style="margin-top: 10px;margin-left: 10px;"></center>
+    </h1>
+    <p style="color: #3942a8;text-align: center;z-index: 100; margin-top: -70px;margin-bottom: 0px;"><strong>© 2024 Learn Mandarin</strong></p>
+</body>
+</html>

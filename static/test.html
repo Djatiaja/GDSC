@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BELAJAR HTML</title>
+    <style>
+        body {
+            background-color: #301633;
+            margin: 0; /* Add this line to remove default margin */
+            padding: 0;
+        }
+        h1 {
+            color:whitesmoke;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 80px;
+        }
+        p {
+            color:whitesmoke;
+            font-family:system-ui;
+            font-size:large;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            color:whitesmoke;
+            
+        }
+        li {
+            float: right;
+            display: block;
+            color:whitesmoke;
+            text-align:center;
+            margin: 15px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        
+        li a:hover{
+            background-color:#111111;
+            
+        }
+        .vertikal {
+            border-left: 10px solid whitesmoke; /* Ubah properti border-left */
+            height: 10%; /* Sesuaikan tinggi dengan konten */
+            margin-top: 70px;
+            position: absolute;
+            left: 510px; /* Sesuaikan jarak dari kiri */
+        }
+        .persegi-panjang{ 
+            height: 90px;
+            width: 1250px;
+            margin-top: 0;
+            position: absolute;
+            background-color: #624166;
+
+        }
+        .tulisan{
+            color: whitesmoke;
+            z-index: 1;
+        }
+        header{
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+        }
+        .pp {
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+            height: 60px;
+            position: fixed; /* Add this line */
+            width: 100%; /* Add this line to make it full width */
+            top: 0; /* Add this line to position it at the top */
+        }
+
+        .menu-kanan {
+            margin-left: auto;
+        }
+        .hskbutton{
+            float: right;
+            display: block;
+            background-color: #3942a8;
+            color:whitesmoke;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align:center;
+            padding-bottom: 10px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+            border:none;
+            cursor: pointer;
+            font-size: large;
+        }
+        .hskbutton:hover{
+            background-color: whitesmoke;
+            color: #3942a8;
+
+            padding: 20px;
+        }
+        
+        .dropbawah{
+            position: fixed;
+            display: inline-block;
+        }
+        .dropbawah-child{
+            display: none;
+            background-color:#3942a8;
+            min-width: 200px;
+        }
+        .dropbawah-child a{
+            color:whitesmoke;
+            padding: 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropbawah:hover .dropbawah-child{
+            display: block;
+        }
+
+        .dropbawah1{
+            position: fixed;
+            display: inline-block;
+        }
+        .dropbawah-child1{
+            display: none;
+            background-color:#3942a8;
+            min-width: 200px;
+        }
+        .dropbawah-child1 a{
+            color:whitesmoke;
+            padding: 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropbawah1:hover .dropbawah-child1{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="pp">
+        <img src="lm.png" style="float: left;width: 200px;height: 200px;margin-left: -40px;margin-top: -70px;padding-left: 10px;">
+        <strong>
+            <ul class="menu-kanan">
+                <div class="dropbawah">
+                    <button class="hskbutton" ><strong>ABOUT US</strong></button>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                    <button class="hskbutton"><strong>HSK</strong></button>
+                        <div class="dropbawah-child">
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8">sub 1</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8">sub2</a>
+                        </div>
+                </div>
+            </ul>    
+        </strong>
+    </div>
+    
+    <h1 style="background-image: url('BG.jpeg');text-align: center;padding: 160px;margin:0px;">
+        <p><i> This is my </i></p>
+        <span style="background-color:#624166;padding: 10px;"><strong>MY WORK</strong></span>
+        <p><em>Take A Seat and Enjoy</em></p>
+    </h1>
+
+    <img src="WhatsApp Image 2024-01-09 at 16.48.37.jpeg" style="float: left;margin-left: 100px;width: 300px; height: auto; margin-bottom: 100px;margin-top: 80px;margin-right: 100px;">
+    <div class="vertikal"></div> <!-- Tambahkan elemen div dengan class vertikal -->
+    
+    <h1 style="font-size: 40px;padding-top: 50px; margin-left: 530px;">Edeline Felicia Dharmawan</span></h1>
+    
+    <p style="text-align: justify; padding-left: 100px;padding-right: 100px;"><strong> Adaptive, enthusiastic, and a creative graphic designer from Indonesia. She has produced 10 + graphic design projects & also worked with Greener is Cleaner, Leader Hub Jawa Tengah organization, MYI Korea, Indonesian Outlook 2024 and also served as DUSG of Social Media in Kridz World MUN as well. 
+        Her expertise in Marketing as well as in the Entrepreneurship Department in various organizations towers her knowledge. Her belief in Learning with every scale erupts from her keen observations which boosts her to quench her thirst of inquisitiveness. 
+        Besides working with some organizations, Edeline has done several MUNs and  also been selected as the best position paper in sunshine MUN 1.0 and MYI MUN 8.0. Her interests in several fields such as photography, editing, writing poetry, and also drawing enrich her abilities as well as achievements. 
+    </strong>
+    </p>
+    <!--
+    <p style="text-align: center;margin-top: 0px;">HALO</p>
+    -->
+    <div class="persegi-panjang">
+        <h1 style="text-align: left;color: whitesmoke;margin-top: 25px;margin-right: 50px; margin-left: 100px;">My<br>Work</h1>
+        <p style="text-align: left;color: whitesmoke;margin-left: 100px;margin-top: -60px;margin-right: 50px;"><strong>These are the results of some of my works and hobbies</strong> </p>
+    </div>
+    
+    <h1 style="background-image: url('BG2.jpeg');padding: 160px;width: 100;height: 60px;margin-top: 30px;">
+        <p class="tulisan">halo</p>
+    </h1>
+    
+</body>
+</html>

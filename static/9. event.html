@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
+    <title>Event</title>
+    <style>
+        body{
+            margin: 0px;
+            background-color: #fefefe;
+        }
+        .backgroundimg{
+            width: 100pw;
+            height: 300px;
+            background-color: blueviolet;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            z-index: 0;
+        }
+        .circle{
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            border-radius: 50%;
+            margin-left: 50%;
+            margin-right: 50%;
+            position: relative;
+            z-index: 50;
+        }
+       
+        .container{
+            width: 63rem;
+            height: 35rem;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0,.2);
+            position: relative;
+            overflow: hidden;
+            background: inherit;
+            border-radius: 100px;
+            z-index: 1;
+            margin-top: -10px;
+            justify-content: center;
+            align-self: center;
+            justify-items: center;
+            display: flex;
+            margin: -50px;
+            margin-left: 130px;
+            
+        }
+        .container:before{
+            content: "";
+            position: absolute;
+            background-color: inherit;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+            filter: blur(10px);
+            z-index: -7;
+            border-radius: 100px;
+        }
+        .garishori {
+            border: none;
+            height: 10px;
+            color: #ffffff; 
+            background-color: #ffffff;
+            margin-top: 60px;
+            position: absolute;
+            z-index: 100;
+            width: 80%;
+            margin-left: 10px;
+            justify-content: center;
+            align-self: center;
+            justify-items: center;
+            display: flex;
+        }
+        h1 {
+            color:whitesmoke;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 80px;
+            overflow: hidden;
+            padding-bottom: -100px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            color:whitesmoke;
+            
+        }
+        li {
+            float: right;
+            display: block;
+            color:whitesmoke;
+            text-align:center;
+            margin: 15px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        
+        li a:hover{
+            background-color:#111111;
+            
+        }
+        .vertikal {
+            border-left: 10px solid whitesmoke; 
+            height: 10%; 
+            margin-top: 70px;
+            position: absolute;
+            left: 510px; 
+        }
+        .persegi-panjang{ 
+            height: 90px;
+            width: 1250px;
+            margin-top: 0;
+            position: absolute;
+            background-color: #624166;
+
+        }
+        .tulisan{
+            color: whitesmoke;
+            z-index: 1;
+        }
+        header{
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+        }
+        .pp {
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+            height: 60px;
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            justify-content: flex-end;
+        }
+
+        
+        .menu-kanan1{
+            float: left;
+        }
+        .menu-kanan {
+            text-align: right;
+        }
+        .hskbutton{
+            float: right;
+            display: block;
+            background-color: #3942a8;
+            color:whitesmoke;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align:center;
+            padding-bottom: 10px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+            border:none;
+            cursor: pointer;
+            font-size: large;
+        }
+        .hskbutton:hover{
+            background-color: whitesmoke;
+            color: #3942a8;
+            padding: 20px;
+        }
+        
+        .dropbawah{
+            display: inline-block;
+            padding-left: -10px;
+        }
+        
+    .dropbawah-child {
+        display: none;
+        position: absolute;
+        background-color: whitesmoke;
+        min-width: 100px;
+        overflow: hidden;
+        border: 1px solid #3942a8;
+        border-radius: 5px;
+    }
+
+        .dropbawah-child a{
+            color:#3942a8;
+            padding: 10px ;
+            padding-left: 90px;
+            text-decoration: none;
+            display: block;
+            text-align: center;           
+        }
+
+        .dropbawah:hover .dropbawah-child{
+            display: block; 
+            overflow: hidden;
+        }
+        .h1-background {
+            background-color: #3942a8;
+            width: 100%;
+            background-size: 5px 10px; 
+        }
+        .navbar input[type="search"] {
+            width: 1000px;
+            padding: 10px; 
+            font-size: 16px; 
+        }
+        .navbar button[type="submit"] {
+            padding: 12px; 
+            font-size: 16px; 
+        }
+        #carouselExampleControls {
+            margin-top: 30px; 
+            
+        }
+        .buttonnih{
+            padding: 50px;
+            padding-left: 150px;
+            padding-right: 90px;
+            background-color: orange;
+            color: #634680;
+            font-size: larger;
+            border: #ffffff;
+            border-radius: 10px;
+            z-index: 90;
+            position: relative;
+            margin-top: -200px;
+            margin-left: 330px;
+            width: 10px;
+            height: 40px;
+        }
+        .buttonnih:hover{
+            background-color: #857991;
+            padding: 50px;
+            color: orange;
+            padding: 50px;
+            padding-left: 150px;
+            padding-right: 90px;
+            position: relative;
+            width: 30px;
+            z-index: 900;
+        }
+        .dekorasi{
+            justify-content: end;
+            align-self: flex-end;
+
+            background-color: transparent;
+            color: black;
+            font-size: larger;
+            border: #ffffff;
+            border-radius: 10px;
+            z-index: 90;
+            margin-left: -90px;
+            position: absolute;
+            margin-top: -2px;
+
+        }
+        #carouselExampleControls {
+            margin-top: 30px; 
+            
+        }
+        .geser{
+            margin-left: 35px;
+        }
+        .boxclose{
+            background-color: #3942a8;
+            padding: 90px;
+            width: 1060px;
+            height: 350px;
+            margin-top: 60px;
+            margin-left: 100px;
+            margin-bottom: 100px;
+            border-radius: 10px;
+        }
+        .boxdoang{
+            background-color: #e8bb15;
+            padding: 90px;
+            width: 300px;
+            height: 300px;
+            margin-top: -65px;
+            margin-left: -50px;
+            margin-bottom: 100px;
+            border-radius: 20px;
+        }
+        .boxclose1{
+            background-color:#e8bb15;
+            padding: 90px;
+            width: 1060px;
+            height: 350px;
+            margin-top: 60px;
+            margin-left: 100px;
+            margin-bottom: 100px;
+            border-radius: 10px;
+        }
+        .boxdoang1{
+            background-color:#3942a8;
+            padding: 90px;
+            width: 300px;
+            height: 300px;
+            margin-top: -65px;
+            margin-left: -50px;
+            margin-bottom: 100px;
+            border-radius: 20px;
+        }
+        .naik{
+            margin-top: -160px;
+        }
+        .geserin{
+            margin-left: 60px;
+        }
+    </style>
+</head>
+<body>
+    <img src="lm.png" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 99000;">
+
+    <div class="pp" style="z-index: 10000;">
+        <strong>
+            <ul class="menu-kanan" style="z-index: 100;">
+                <div style="display: block;" style="z-index: 1000;">
+                    <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                    <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
+                        <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;">
+                            <!--tinggal link ke page yang dituju-->
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 1</a> 
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 2</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 3</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 4</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 5</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 6</a>
+                        </div>
+                </div>
+            </ul>    
+        </strong>
+    </div>
+    <script>
+        function dropdown(params) {
+            if (params != "show") {
+            document.getElementById("myDropdown").style.display = "none";
+            } else{
+                document.getElementById("myDropdown").style.display = "block";
+            }
+        }
+    </script>
+
+    <div class="backgroundimg">
+        <h1 style="font-size: 200px;color: #fefefe;position:absolute;z-index: 10000000000000;margin-top: 60px;margin-left: 330px;text-align: center;"><strong>EVENT</strong></h1>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="z-index: -1;">
+                <a href="https://youtu.be/Yfniz6_YLMM?si=XkaNUZQJwIQcC0mf"><img src="tampilan untuk event yang ada.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;"/>
+                    <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
+            </div>
+          <div class="carousel-item" style="z-index: -1;">
+            <a href="https://youtu.be/Yfniz6_YLMM?si=XkaNUZQJwIQcC0mf">
+                <img src="tampilan untuk event yang ada.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover; padding: 20px;">
+                <p style="color: #111111; text-align: center; margin-top: -10px;">Klik gambar untuk mempelajari lebih lanjut</p>
+            </a>
+        </div>
+        
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="tampilan untuk event yang ada.png" class="d-block w-100" alt="..." height="450px"  style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
+          </div>
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="tampilan untuk event yang ada.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
+          </div>
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="tampilan untuk event yang ada.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
+          </div>
+          <div class="carousel-item" style="z-index: -1;">
+            <img src="tampilan untuk event yang ada.png" class="d-block w-100" alt="..." height="450px" style="object-fit: cover;padding: 20px;">
+            <p style="color: #111111;text-align: center;">Klik gambar untuk mempelajari lebih lanjut</p>
+          </div>
+        </div>
+        <!--button untuk prev ama next di carousel-->
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        </div>
+      </div>
+
+    <div class="geser">
+    <div class="buttonnih" style="top: 300px;left: -180px;" >
+        <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi" ><strong>Webinar </strong></button></a>
+    </div>
+    <div class="buttonnih" style="left: 30px;top: 400px;">
+    <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi"><strong>Workshop</strong></button></a>
+    </div>
+    <div class="buttonnih" style="left: 250px;top: 500px;">
+        <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi" style="margin-left: -110px;"><strong>Test Sertifikat</strong></button></a>
+    </div>
+    <div class="buttonnih" style="left: 460px;top: 600px;">
+        <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi" style="margin-left: -70px;"><strong>Kursus</strong></button></a>
+    </div>
+</div>
+    
+<nav class="navbar bg-body-tertiary" style="margin-top: 200px;margin-left: 20px;">
+    <div class="container-fluid" style="position: absolute;padding: 30px;margin-left: 50px;margin-top: -10px;position:relative; z-index: -1;">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search for the event about HSK" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+    <h1 style="color: #111111;margin-top: 190px;margin-left: 100px;"><strong>Closest Deadline</strong></h1>
+    <p style="color:#e8bb15;float: right;margin-right:100px;margin-top: -50px;margin-left: -800px ;font-size: 30px;">more...</p> 
+
+    <div class="boxclose"><div class="boxdoang">POSTER EVENT</div> 
+    <h1 style="color: white;margin-left: 300px;margin-top: -400px;"><strong>Nama Event</strong></h1>
+    <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: -10px;font-size: medium;"> deskripsi singkat </p>
+    <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: 80px;font-size: 27px;"> <strong>Deadline :
+    </strong> </p>
+    <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: -10px;font-size: 27px;"> <strong>Event :</strong> </p>
+    <p style="color:#e8bb15;margin-left: 460px;margin-top:-106px;font-size: 30px;"> <strong>14 des 2024</strong>  </p>
+    <p style="color:#e8bb15;margin-left: 460px;margin-top:-17px;font-size: 30px;"> <strong>20 des 2024</strong>  </p>
+    </div>
+    <img src="tampilan_untuk_event_yang_ada-removebg-preview.png" width="100px" height="80px" style="margin-top: -400px;margin-left: 1000px;margin-bottom: 0px;">
+
+    <div class="naik">
+    <div class="boxclose1"><div class="boxdoang1">POSTER EVENT</div> 
+    <h1 style="color: rgb(0, 0, 0);margin-left: 300px;margin-top: -400px;"><strong>Nama Event</strong></h1>
+    <p style="color: rgb(0, 0, 0);margin-left: 300px;margin-top: -10px;font-size: medium;"> deskripsi singkat </p>
+    <p style="color: rgb(0, 0, 0);margin-left: 300px;margin-top: 80px;font-size: 27px;"> <strong>Deadline :
+    </strong> </p>
+    <p style="color: rgb(0, 0, 0);margin-left: 300px;margin-top: -10px;font-size: 27px;"> <strong>Event :</strong> </p>
+    <p style="color:#3942a8;margin-left: 460px;margin-top:-106px;font-size: 30px;"> <strong>14 des 2024</strong>  </p>
+    <p style="color:#3942a8;margin-left: 460px;margin-top:-17px;font-size: 30px;"> <strong>20 des 2024</strong>  </p>
+    </div>
+    </div>
+    <img src="image-removebg-preview (22).png" width="60px" height="70px" style="margin-top: -400px;margin-left: 1020px;margin-bottom: 0px;">
+
+    <div class="naik">
+    <div class="boxclose"><div class="boxdoang">POSTER EVENT</div> 
+    <h1 style="color: white;margin-left: 300px;margin-top: -400px;"><strong>Nama Event</strong></h1>
+    <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: -10px;font-size: medium;"> deskripsi singkat </p>
+    <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: 80px;font-size: 27px;"> <strong>Deadline :
+    </strong> </p>
+    <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: -10px;font-size: 27px;"> <strong>Event :</strong> </p>
+    <p style="color:#e8bb15;margin-left: 460px;margin-top:-106px;font-size: 30px;"> <strong>14 des 2024</strong>  </p>
+    <p style="color:#e8bb15;margin-left: 460px;margin-top:-17px;font-size: 30px;"> <strong>20 des 2024</strong>  </p>
+    </div>
+    <img src="tampilan_untuk_event_yang_ada-removebg-preview.png" width="100px" height="80px" style="margin-top: -400px;margin-left: 1000px;margin-bottom: 0px;">
+</div>
+
+<h1 style="color: #111111;margin-top: 100px;margin-left: 100px;font-size: 50px;"><strong>Apakah  kamu ingin mengupload event?</strong></h1>
+<div class="geserin">
+<h1 style="color: #111111;margin-top: 40px;margin-left: 100px;font-size: 50px;padding: 50px;background-color: #e8bb15;width: 1000px;border-radius: 30px;text-align: center;padding-left: 70px;"> + Upload Event</h1>
+</div>    
+
+<!--bagian footer-->
+    <h1 style="background-color: #e8bb15;margin-bottom: 0px;margin-top: 100px;height: 200px;">
+        <center><img src="lmmm-removebg-preview.png" width="230px" height="150px" style="margin-top: 10px;margin-left: 10px;"></center>
+    </h1>
+    <p style="color: #3942a8;text-align: center;z-index: 100; margin-top: -70px;margin-bottom: 0pxe;"><strong>© 2024 Learn Mandarin</strong></p>
+</body>
+</html>

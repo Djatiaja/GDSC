@@ -240,64 +240,7 @@
         background-color: #ddd;
     }
 
-    .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        /* Hide default checkbox */
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        /* Style the slider */
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        /* Style the slider when it's in the 'on' state */
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-
-        input:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-        }
-
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
+   
     </style>
 </head>
 <body>
@@ -358,24 +301,7 @@
             }
         }
 
-        // Function to handle item selection
-        function handleSelection(option) {
-            var dropdownContent = document.getElementById("dropdownContent");
-            dropdownContent.style.display = "none";
-
-            // Perform action based on selected option
-            if (option === 'user') {
-                alert("User Name selected");
-                // Add your custom logic for 'User Name' option
-            } else if (option === 'logout') {
-                alert("Logout selected");
-                // Add your custom logic for 'Logout' option
-            }
-        }
-    var switchButton = document.getElementById("toggleSwitch");
-    var content1 = document.getElementById("content1");
-    var content2 = document.getElementById("content2");
-    console.log(switchButton)
+        // Function to handle item selectio
     
     
     if(switchButton){
@@ -444,70 +370,73 @@
         </div>
     </div>
 
-
-
-
-
-
-        <h1 style="color: #e8bb15; margin-top: 50px;text-indent: 30px;"><strong>Listening</strong><br>
-            <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 50px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
-                            <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 1</strong>
-                                
-                                <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
-                                    <a href={{hsk.link_audio}} target="_blank"><br> 
-                                        <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
-                                <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong> SAMPLE TEST 2</strong>
-                        <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
-                            <a href={{hsk.link_audio2}} target="_blank"><br> 
-                                <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
-                        <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 3</strong>
-                            <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
-                                <a href={{hsk.link_audio3}} target="_blank"><br> 
-                                    <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        
-                        <h1 style="color: #e8bb15; margin-top: 50px;text-indent: 30px;"><strong>Reading</strong><br>
-                            <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 50px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
-                                <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px;font-size: 50px;"><strong>SAMPLE TEST 1</strong>
-                                    <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
-                                        <a href={{hsk.link_reading}} target="_blank"><br> 
-                                            <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
-                                    <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 2</strong>
-                                        <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
-                                            <a href={{hsk.link_reading2}} target="_blank"><br> 
-                                                <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
-                                        <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 3</strong>
-                                            <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
-                                                <a href={{hsk.link_reading3}} target="_blank"><br> 
-                                                    <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+                                        <form action="" method="post">
+                                            {% csrf_token %}
+                                            <h1 style="color: #e8bb15; margin-top: 50px;text-indent: 30px;"><strong>Listening</strong><br></h1>
+                                            <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 50px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                                                <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 1</strong>
+                                                    <input type="number" min="0" max="100">
+                                                    <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                                                        <a href={{hsk.link_audio}} target="_blank"><br> 
+                                                            <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                                                    <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong> SAMPLE TEST 2</strong>
+                                                        <input type="number" min="0" max="100">
+                                                        <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                                                            <a href={{hsk.link_audio2}} target="_blank"><br> 
+                                                                <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div style="background-color: #3942a8; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                                                        <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 3</strong>
+                                                            <input type="number" min="0" max="100">
+                                                            <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                                                                <a href={{hsk.link_audio3}} target="_blank"><br> 
+                                                                    <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        <h1 style="color: #e8bb15; margin-top: 50px;text-indent: 30px;"><strong>Reading</strong><br>
+                                                            <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 50px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                                                                <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px;font-size: 50px;"><strong>SAMPLE TEST 1</strong>
+                                                                    <input type="number" min="0" max="100">
+                                                                    <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                                                                        <a href={{hsk.link_reading}} target="_blank"><br> 
+                                                                            <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                                                                    <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 2</strong>
+                                                                        <input type="number" min="0" max="100">
+                                                                        <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                                                                            <a href={{hsk.link_reading2}} target="_blank"><br> 
+                                                                                <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div style="background-color: #45486b; width: 1200 px;height:310.87px;margin: 20px;margin-top: 25px;margin-left: 50px; margin-right: 150px; border-radius: 40px;padding: 30px;">
+                                                                        <h1 style="color:#fefefe; margin-top: 0px;text-indent: 0px;margin-left: 20px; font-size: 50px;"><strong>SAMPLE TEST 3</strong>
+                                                                            <input type="number" min="0" max="100">
+                                                                            <div style="background-color: #e8bb15; width: 1000 px;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px;padding: 30px;">
+                                                                                <a href={{hsk.link_reading3}} target="_blank"><br> 
+                                                                                    <p style="margin-top: -75px;font-size: 50px;text-align: center;color: #45486b;"><strong>LEARN NOW</strong></p>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                            <input type="submit" name="" id="" style="background-color: #3942a8; width: 100%;height: 100px;margin: 20px;margin-top: 50px;margin-left: 10px; margin-right: 10px; border-radius: 40px " value="Submit">
+                                                                    </div>
+                                                                    </form>
                                     
                                         <h1 style="background-color: #3942a8;margin-bottom: 0px;margin-top: 90px;height: 200px;">
                                             <center><img src="{% static 'lm.png' %}" width="300px" height="300px" style="margin-top: -70px;"></center>

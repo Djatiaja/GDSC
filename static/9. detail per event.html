@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
+    <title>Detail Event</title>
+    <style>
+        body{
+            margin: 0px;
+            background-color:#e8bb15;
+        }
+        .backgroundimg{
+            width: 100pw;
+            height: 300px;
+            background-color: blueviolet;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            z-index: 0;
+        }
+        .circle{
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            border-radius: 50%;
+            margin-left: 50%;
+            margin-right: 50%;
+            position: relative;
+            z-index: 50;
+        }
+       
+        .container{
+            width: 63rem;
+            height: 150rem;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0,.2);
+            position: relative;
+            overflow: hidden;
+            background: inherit;
+            border-radius: 100px;
+            z-index: 1;
+            margin-top: -10px;
+            justify-content: center;
+            align-self: center;
+            justify-items: center;
+            display: flex;
+            margin: -50px;
+            margin-left: 130px;
+            
+        }
+        .container:before{
+            content: "";
+            position: absolute;
+            background-color: inherit;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+            filter: blur(10px);
+            z-index: -7;
+            border-radius: 100px;
+        }
+        .garishori {
+            border: none;
+            height: 10px;
+            color: #ffffff; 
+            background-color: #ffffff;
+            margin-top: -950px;
+            position: absolute;
+            z-index: 100000000;
+            width: 70%;
+            margin-left: 10px;
+            justify-content: center;
+            align-self: center;
+            justify-items: center;
+            display: flex;
+        }
+        h1 {
+            color:whitesmoke;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 80px;
+            overflow: hidden;
+            padding-bottom: -100px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            color:whitesmoke;
+            
+        }
+        li {
+            float: right;
+            display: block;
+            color:whitesmoke;
+            text-align:center;
+            margin: 15px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        
+        li a:hover{
+            background-color:#111111;
+            
+        }
+        .vertikal {
+            border-left: 10px solid whitesmoke; 
+            height: 10%; 
+            margin-top: 70px;
+            position: absolute;
+            left: 510px; 
+        }
+        .persegi-panjang{ 
+            height: 90px;
+            width: 1250px;
+            margin-top: 0;
+            position: absolute;
+            background-color: #624166;
+
+        }
+        .tulisan{
+            color: whitesmoke;
+            z-index: 1;
+        }
+        header{
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+        }
+        .pp {
+            background-color: #3942a8;
+            color: whitesmoke;
+            display: flex;
+            height: 60px;
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            justify-content: flex-end;
+        }
+
+        
+        .menu-kanan1{
+            float: left;
+        }
+        .menu-kanan {
+            text-align: right;
+        }
+        .hskbutton{
+            float: right;
+            display: block;
+            background-color: #3942a8;
+            color:whitesmoke;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align:center;
+            padding-bottom: 10px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+            border:none;
+            cursor: pointer;
+            font-size: large;
+        }
+        .hskbutton:hover{
+            background-color: whitesmoke;
+            color: #3942a8;
+            padding: 20px;
+        }
+        
+        .dropbawah{
+            display: inline-block;
+            padding-left: -10px;
+        }
+        
+    .dropbawah-child {
+        display: none;
+        position: absolute;
+        background-color: whitesmoke;
+        min-width: 100px;
+        overflow: hidden;
+        border: 1px solid #3942a8;
+        border-radius: 5px;
+    }
+
+        .dropbawah-child a{
+            color:#3942a8;
+            padding: 10px ;
+            padding-left: 90px;
+            text-decoration: none;
+            display: block;
+            text-align: center;           
+        }
+
+        .dropbawah:hover .dropbawah-child{
+            display: block; 
+            overflow: hidden;
+        }
+        .h1-background {
+            background-color: #3942a8;
+            width: 100%;
+            background-size: 5px 10px; 
+        }
+        .navbar input[type="search"] {
+            width: 1000px;
+            padding: 10px; 
+            font-size: 16px; 
+        }
+        .navbar button[type="submit"] {
+            padding: 12px; 
+            font-size: 16px; 
+        }
+        #carouselExampleControls {
+            margin-top: 30px; 
+            
+        }
+        .buttonnih{
+            padding: 50px;
+            padding-left: 150px;
+            padding-right: 150px;
+            background-color:#3942a8;
+            color: #634680;
+            font-size: larger;
+            border: #ffffff;
+            border-radius: 100px;
+            z-index: 90;
+            position: relative;
+            margin-top: -200px;
+            margin-left: 290px;
+            width: 400px;
+            height: 40px;
+        }
+        .buttonnih:hover{
+            padding: 50px;
+            padding-left: 150px;
+            padding-right: 150px;
+            background-color:#624166;
+            color:#3942a8;
+            font-size: larger;
+            border: #ffffff;
+            border-radius: 100px;
+            z-index: 90;
+            position: relative;
+            margin-top: -200px;
+            margin-left: 290px;
+            width: 400px;
+            height: 40px;
+        }
+        .dekorasi{
+            justify-content: end;
+            align-self: flex-end;
+            margin-top: -10px;
+            background-color: transparent;
+            color: rgb(255, 255, 255);
+            font-size: 50px;
+            border: #ffffff;
+            border-radius: 100px;
+            z-index: 90;
+            margin-left: 10px;
+            position: absolute;
+           
+        }
+        table{
+            margin-top: 900px;
+            z-index: 900;
+            margin-left: 195px;
+            position: relative;
+            
+        }
+        th,td{
+            border-radius: 10px;
+            background-color:#ffffff;
+            padding: 30px;
+            z-index: 9000;
+            position: relative;
+            padding-right: 10px;
+        }
+        .box-point{
+            background-color: #624166;
+            border-radius: 10px;
+            padding-top: -10px;
+            margin-top: -20px;
+            position: absolute;
+            width: 500px;
+            
+        }
+        .box-point1{
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding-top: 0px;
+            margin-top: -25px;
+            position: absolute;
+            z-index: 1000000;
+            margin-left: 7px;
+            padding-right: 100px;
+         
+        }
+        .model{
+            margin-top: 20px;
+            z-index: 1;
+        }
+        .box{
+            border-radius: 100px;
+            background-color: #3942a8;
+            width: 950px;
+            height: 900px;
+            margin-top: 30px;
+        }
+        .atasin{
+            z-index: 1000;
+            position: absolute;
+            margin-left: 100px;
+            color: #111111;
+        }
+    </style>
+</head>
+<body>
+    <img src="lm.png" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -150px;padding-left: 10px;position: fixed;z-index: 99000000;">
+
+    <div class="pp" style="z-index: 10000;">
+        <strong>
+            <ul class="menu-kanan" style="z-index: 100;">
+                <div style="display: block;" style="z-index: 1000;">
+                    <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                    <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
+                        <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;">
+                            <!--tinggal link ke page yang dituju-->
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 1</a> 
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 2</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 3</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 4</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 5</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 6</a>
+                        </div>
+                </div>
+            </ul>    
+        </strong>
+    </div>
+    <script>
+        function dropdown(params) {
+            if (params != "show") {
+            document.getElementById("myDropdown").style.display = "none";
+            } else{
+                document.getElementById("myDropdown").style.display = "block";
+            }
+        }
+    </script>
+
+<table style=" margin-top: 950px;z-index: 200;text-align: center;position: absolute;">
+    <tr>
+        <th style="width: 250px;height: 10px;"> 
+        <p style="text-align: center;margin-left: -80px;">📅 Deadline : 10 feb 2024</p> 
+        <p style="text-align: center;margin-left: -40px;">📅 Tanggal Event : 10 feb 2024</p> 
+        <p style="text-align: center;margin-left: -40px;">🕐 Waktu : 14.00 WIB - selesai</p>
+        </th>
+        <th style="width: 250px;height: 10px;">
+            <p style="text-align: center;margin-left: -80px;">⭐ Free Certificate</p>
+            <p style="text-align: center;margin-left: -80px;">
+            <img src="network.png" width="30px" height="30px" style="margin-left: -110px; ;"> 
+            <p style="margin-top: -40px;margin-left: -90px;">Network</p>
+            </p>
+            <p style="text-align: center;margin-left: -140px;">📌 Online</p>
+        </th>
+        <th style="width: 250px;height: 10px;">
+            <p style="text-align: center;margin-left: -80px;">
+            <img src="ig.png" width="30px" height="30px" style="margin-left: -110px; ;"> 
+            <p style="margin-top: -40px;margin-left: -90px;">@xxxxx</p>
+            </p>
+            <p style="text-align: center;margin-left: -80px;">
+                <img src="twt.png" width="30px" height="30px" style="margin-left: -110px; ;"> 
+                <p style="margin-top: -40px;margin-left: -90px;">@xxxxx</p>
+                </p>
+        </th>
+    </tr>
+</table>
+
+<div class="atasin">
+<h1 style="font-size: 50px;margin-top: 1190px;margin-left: 100px;color: #111111;">Details</h1>
+<p style="margin-left: 100px;font-size: 30px;">Benefit</p>
+<p style="margin-left: 100px;font-size: 30px;margin-top: 400px;">detail lain</p>
+</div>
+    <div class="container" style="margin-top: 100px;">
+        <div class="box"> 
+        <h1 style="color: rgb(255, 255, 255);text-align: center;text-indent: 0px;margin-top: 90px; position: absolute;"><strong>poster event</strong></h1>
+    </div>
+</div>
+<div class="garishori" style="z-index: 100;position:absolute;margin-top: -750px;margin-left: 190px;"></div>
+
+
+    <div class="buttonnih" style="top: -10px;">
+        <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi" ><strong>Daftar Sekarang</strong></button></a>
+    </div>
+   
+    
+   
+    <!--bagian footer-->
+    <h1 style="background-color: #3942a8;margin-bottom: 0px;margin-top: 90px;height: 200px;">
+        <center><img src="lm.png" width="300px" height="300px" style="margin-top: -70px;"></center>
+    </h1>
+    <p style="color: #e8bb15;text-align: center;z-index: 100; margin-top: -70px;"><strong>© 2024 Learn Mandarin</strong></p>
+</body>
+</html>

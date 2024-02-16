@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -294,88 +292,26 @@
             margin-top: 20px;
             z-index: 1;
         }
-        /* Reset some default styles */
-body, h1, h2, p, button {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Style for the dropdown container */
-.dropdown-container {
-    position: relative;
-    display: inline-block;
-}
-
-/* Style for the dropdown button */
-.dropdown-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Style for the dropdown content */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-/* Style for the dropdown items */
-.dropdown-item {
-    padding: 12px 16px;
-    display: block;
-    text-decoration: none;
-    color: #333;
-    cursor: pointer;
-}
-
-/* Style for the dropdown items on hover */
-.dropdown-item:hover {
-    background-color: #ddd;
-}
     </style>
 </head>
 <body>
-    <img src='{% static "lm.png" %}' style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 99000;">
+    <img src="lm.png" style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 99000;">
 
     <div class="pp" style="z-index: 10000;">
         <strong>
             <ul class="menu-kanan" style="z-index: 100;">
                 <div style="display: block;" style="z-index: 1000;">
-                    {% if request.user.is_authenticated %}
-                        <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
-                        <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 338px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
-                            <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
-                            <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
-                        </div>
-                    {% else %}
-                    <a href="{% url 'login' %}">
-                        <button class="hskbutton" ><strong>LOGIN</strong></button>
-                    </a>
-                    {% endif %}
                     <button class="hskbutton"><strong>ABOUT US</strong></button>
-                    <a href="{% url 'roadmap' %}">
-
-                        <button class="hskbutton" ><strong>ROADMAP</strong></button>
-                    </a>
+                    <button class="hskbutton" ><strong>ROADMAP</strong></button>
                     <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
                         <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;">
                             <!--tinggal link ke page yang dituju-->
-                            <a href="{% url 'hsk' 1 %}" style="padding: 10px;">HSK 1</a> 
-                            <a href="{% url 'hsk' 2 %}" style="padding: 10px;">HSK 2</a>
-                            <a href="{% url 'hsk' 3 %}" style="padding: 10px;">HSK 3</a>
-                            <a href="{% url 'hsk' 4 %}" style="padding: 10px;">HSK 4</a>
-                            <a href="{% url 'hsk' 5 %}" style="padding: 10px;">HSK 5</a>
-                            <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 1</a> 
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 2</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 3</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 4</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 5</a>
+                            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8" style="padding: 10px;">HSK 6</a>
                         </div>
                 </div>
             </ul>    
@@ -387,28 +323,6 @@ body {
             document.getElementById("myDropdown").style.display = "none";
             } else{
                 document.getElementById("myDropdown").style.display = "block";
-            }
-        }
-        function toggleDropdown(params) {
-            if (params != "show") {
-                document.getElementById("dropdownContent").style.display = "none";
-            } else{
-                document.getElementById("dropdownContent").style.display = "block";
-            }
-        }
-
-        // Function to handle item selection
-        function handleSelection(option) {
-            var dropdownContent = document.getElementById("dropdownContent");
-            dropdownContent.style.display = "none";
-
-            // Perform action based on selected option
-            if (option === 'user') {
-                alert("User Name selected");
-                // Add your custom logic for 'User Name' option
-            } else if (option === 'logout') {
-                alert("Logout selected");
-                // Add your custom logic for 'Logout' option
             }
         }
     </script>
@@ -427,8 +341,8 @@ body {
     <div class="buttonnih" style="left: 300px;top: 20px;">
     <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi"><strong>Last Lesson</strong></button></a>
     </div>
-    <img src='{% static "image-removebg-preview (22).png" %}' style="margin-top: -100px;width:55px; height:55px;margin-left: 470px;z-index: 900;position: absolute;">
-    <img src='{% static "b805ebe6-5867-4004-a964-3f65d9d9614d.png" %}'style="margin-top: -110px;width:70px; height:70px;margin-left: 760px;z-index: 900;position: absolute;">
+    <img src="image-removebg-preview (22).png" style="margin-top: -100px;width:55px; height:55px;margin-left: 470px;z-index: 900;position: absolute;">
+    <img src="b805ebe6-5867-4004-a964-3f65d9d9614d.png" style="margin-top: -110px;width:70px; height:70px;margin-left: 760px;z-index: 900;position: absolute;">
     
     <h1 style="padding-left: 0px;
     padding-right: 0px;border-radius: 10px;
@@ -473,14 +387,14 @@ body {
 
     </table>
     <div class="model">
-    <img src='{% static "Untitled_design__4_-removebg-preview.png" %}' width="500px" height="333px" style="z-index: 100; position: absolute;margin-left: 380px;">
+    <img src="Untitled_design__4_-removebg-preview.png" width="500px" height="333px" style="z-index: 100; position: absolute;margin-left: 380px;">
     <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in 7th rank</h1>
-    <img src='{% static  "Untitled_design__5_-removebg-preview.png" %}' width="80px" height="50px" style="z-index: 100; position: absolute;margin-left: 460px;margin-top: 380px;">
+    <img src="Untitled_design__5_-removebg-preview.png" width="80px" height="50px" style="z-index: 100; position: absolute;margin-left: 460px;margin-top: 380px;">
     <h1 style="margin-left: 530px;color: #ffffff;z-index: 10; position: absolute;font-size: 20px;margin-top: 390px;"> Total points : </h1>
     </div>
     <!--bagian footer-->
     <h1 style="background-color: #e8bb15;margin-bottom: 0px;margin-top: 900px;height: 200px;position:sticky;">
-        <center><img src='{% static "lmmm-removebg-preview.png" %}'width="230px" height="150px" style="margin-top: 10px;margin-left: 10px;"></center>
+        <center><img src="lmmm-removebg-preview.png" width="230px" height="150px" style="margin-top: 10px;margin-left: 10px;"></center>
         
     </h1>
     <p style="color: #3942a8;text-align: center;z-index: 10000; margin-top: -70px;margin-bottom: 0pxe;position: relative;"><strong>© 2024 Learn Mandarin</strong></p>
