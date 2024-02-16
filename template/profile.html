@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
+    <link rel="icon" type="image/x-icon" href='{% static "lm1.png" %}' style="width: 200px;height: 300px;">
     <title>Profile Page</title>
     <style>
         body{
@@ -28,6 +28,7 @@
             margin-right: 50%;
             position: relative;
             z-index: 50;
+            margin-top: 10p;
         }
        
         .container{
@@ -345,7 +346,9 @@ body {
     </style>
 </head>
 <body>
-    <img src='{% static "lm.png" %}' style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 99000;">
+    <a href="/">
+        <img src='{% static "lm.png" %}' style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 99000;">
+    </a>
 
     <div class="pp" style="z-index: 10000;">
         <strong>
@@ -362,7 +365,9 @@ body {
                         <button class="hskbutton" ><strong>LOGIN</strong></button>
                     </a>
                     {% endif %}
-                    <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    <a href="{% url 'about' %}">
+                        <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    </a>
                     <a href="{% url 'roadmap' %}">
 
                         <button class="hskbutton" ><strong>ROADMAP</strong></button>
@@ -412,71 +417,71 @@ body {
             }
         }
     </script>
+            <div class="backgroundimg"></div>
+    <div style="margin-left: 200px;">
+            <div class="circle" style="margin-top:-100px;margin-left: 34%;"></div>
+        
+            <div class="container" style="margin-top: -100px;">
+                <h1 style="color: rgb(255, 255, 255);text-align: center;text-indent: 0px;margin-top: 150px; position: absolute;"><strong>{{request.user}}</strong></h1>
+                <div class="garishori"></div>
+            </div>
+            <div class="buttonnih" style="top: -40px;">
+                <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi" ><strong>Saved Event</strong></button></a>
+            </div>
+            <div class="buttonnih" style="left: 300px;top: 20px;">
+            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi"><strong>Last Lesson</strong></button></a>
+            </div>
+            <img src='{% static "image-removebg-preview (22).png" %}' style="margin-top: -100px;width:55px; height:55px;margin-left: 470px;z-index: 900;position: absolute;">
+            <img src='{% static "b805ebe6-5867-4004-a964-3f65d9d9614d.png" %}'style="margin-top: -110px;width:70px; height:70px;margin-left: 760px;z-index: 900;position: absolute;">
+            
+            <h1 style="padding-left: 0px;
+            padding-right: 0px;border-radius: 10px;
+                    background-color: #e8bb15;
+                    width: 810px;
+                    z-index: 9000;
+                    position: relative;
+                    margin-left: 230px;
+                    position: relative;margin-top: -1100px;margin-bottom: 0px;text-align: center;">RESULT</h1>
+            <table style=" margin-top: 10px;z-index: 200;text-align: center;position: relative;">
+                <tr>
+                    <th style="width: 200px;"> Aspects </th>
+                    <th style="width: 490px;"> Points </th>
+                </tr>
+                <tr>
+                    <td >Listening</td>
+                    <td>
+                        <div class="box-point" >
+                            <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
+                            <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Reading</td>
+                    <td>
+                        <div class="box-point" >
+                            <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
+                            <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Writing</td>
+                    <td>
+                        <div class="box-point" >
+                            <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
+                            <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
+                        </div>
+                    </td>
+                </tr>
 
-    <div class="backgroundimg"></div>
-    <div class="circle" style="margin-top:-100px;margin-left: 38%;"></div>
-  
-    <div class="container" style="margin-top: -100px;">
-        <h1 style="color: rgb(255, 255, 255);text-align: center;text-indent: 0px;margin-top: 90px; position: absolute;"><strong>Username</strong></h1>
-        <p style="color: rgb(255, 255, 255);text-align: center;padding-left: 90px;padding-right: 90px;margin-top: 200px; position: absolute;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <div class="garishori"></div>
-    </div>
-    <div class="buttonnih" style="top: -40px;">
-        <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi" ><strong>Saved Event</strong></button></a>
-    </div>
-    <div class="buttonnih" style="left: 300px;top: 20px;">
-    <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi"><strong>Last Lesson</strong></button></a>
-    </div>
-    <img src='{% static "image-removebg-preview (22).png" %}' style="margin-top: -100px;width:55px; height:55px;margin-left: 470px;z-index: 900;position: absolute;">
-    <img src='{% static "b805ebe6-5867-4004-a964-3f65d9d9614d.png" %}'style="margin-top: -110px;width:70px; height:70px;margin-left: 760px;z-index: 900;position: absolute;">
-    
-    <h1 style="padding-left: 0px;
-    padding-right: 0px;border-radius: 10px;
-            background-color: #e8bb15;
-            width: 810px;
-            z-index: 9000;
-            position: relative;
-            margin-left: 230px;
-            position: relative;margin-top: -1100px;margin-bottom: 0px;text-align: center;">RESULT</h1>
-    <table style=" margin-top: 10px;z-index: 200;text-align: center;position: relative;">
-        <tr>
-            <th style="width: 200px;"> Aspects </th>
-            <th style="width: 490px;"> Points </th>
-        </tr>
-        <tr>
-            <td >Listening</td>
-            <td>
-                <div class="box-point" >
-                    <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
-                    <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td >Reading</td>
-            <td>
-                <div class="box-point" >
-                    <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
-                    <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td >Writing</td>
-            <td>
-                <div class="box-point" >
-                    <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
-                    <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
-                </div>
-            </td>
-        </tr>
-
-    </table>
-    <div class="model">
-    <img src='{% static "Untitled_design__4_-removebg-preview.png" %}' width="500px" height="333px" style="z-index: 100; position: absolute;margin-left: 380px;">
-    <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in 7th rank</h1>
-    <img src='{% static  "Untitled_design__5_-removebg-preview.png" %}' width="80px" height="50px" style="z-index: 100; position: absolute;margin-left: 460px;margin-top: 380px;">
-    <h1 style="margin-left: 530px;color: #ffffff;z-index: 10; position: absolute;font-size: 20px;margin-top: 390px;"> Total points : </h1>
+            </table>
+            <div class="model">
+            <img src='{% static "Untitled_design__4_-removebg-preview.png" %}' width="500px" height="333px" style="z-index: 100; position: absolute;margin-left: 380px;">
+            <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in 7th rank</h1>
+            <img src='{% static  "Untitled_design__5_-removebg-preview.png" %}' width="80px" height="50px" style="z-index: 100; position: absolute;margin-left: 460px;margin-top: 380px;">
+            <h1 style="margin-left: 530px;color: #ffffff;z-index: 10; position: absolute;font-size: 20px;margin-top: 390px;"> Total points : </h1>
+            </div>
     </div>
     <!--bagian footer-->
     <h1 style="background-color: #e8bb15;margin-bottom: 0px;margin-top: 900px;height: 200px;position:sticky;">

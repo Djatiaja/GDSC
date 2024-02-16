@@ -22,3 +22,7 @@ class user():
         fields = ['username', 'email', 'password1', 'password2']
 
     
+class userFirebase(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    kunci= models.CharField(max_length=50)
+    
