@@ -90,7 +90,7 @@ def loadDataFromFirebaseAPI(token):
 
     url = "https://identitytoolkit.googleapis.com/v1/accounts:lookup"
 
-    payload = 'key=AIzaSyCx_PWWt4dVxQRvcVzMe6ew8dZndSN7k1Y&idToken='+token
+    payload = 'key=&idToken='+token
     headers = {
     'Content-Type': 'application/x-www-form-urlencoded'
     }
