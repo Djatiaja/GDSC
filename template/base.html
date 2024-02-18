@@ -321,4 +321,9 @@ body, h1, h2, p, button {
     <p style="color: #e8bb15;text-align: center;z-index: 100; margin-top: -70px;"><strong>© 2024 Learn Mandarin</strong></p>
 
 </body>
+{% for message in messages %}
+	<script>
+		alert("{{message}}")
+	</script>
+	{% endfor %}
 </html>

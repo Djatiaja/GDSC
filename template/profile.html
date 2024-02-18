@@ -288,7 +288,7 @@
             position: absolute;
             z-index: 1000000;
             margin-left: 7px;
-            padding-right: 100px;
+            text-indent: 10px; margin-top: 10px;
          
         }
         .model{
@@ -425,14 +425,10 @@ body {
                 <h1 style="color: rgb(255, 255, 255);text-align: center;text-indent: 0px;margin-top: 150px; position: absolute;"><strong>{{request.user}}</strong></h1>
                 <div class="garishori"></div>
             </div>
-            <div class="buttonnih" style="top: -40px;">
-                <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi" ><strong>Saved Event</strong></button></a>
+            <div class="buttonnih" style="left: 300px;top: 20px; margin-left: 170px;">
+            <a href="{{history.historyUrl}}"><button class="dekorasi"><strong>Last Lesson</strong></button></a>
             </div>
-            <div class="buttonnih" style="left: 300px;top: 20px;">
-            <a href="https://www.youtube.com/watch?v=nC49uRsKmR8"><button class="dekorasi"><strong>Last Lesson</strong></button></a>
-            </div>
-            <img src='{% static "image-removebg-preview (22).png" %}' style="margin-top: -100px;width:55px; height:55px;margin-left: 470px;z-index: 900;position: absolute;">
-            <img src='{% static "b805ebe6-5867-4004-a964-3f65d9d9614d.png" %}'style="margin-top: -110px;width:70px; height:70px;margin-left: 760px;z-index: 900;position: absolute;">
+            <img src='{% static "b805ebe6-5867-4004-a964-3f65d9d9614d.png" %}'style="margin-top: -110px;width:70px; height:70px;margin-left: 590px;z-index: 900;position: absolute;">
             
             <h1 style="padding-left: 0px;
             padding-right: 0px;border-radius: 10px;
@@ -451,8 +447,10 @@ body {
                     <td >Listening</td>
                     <td>
                         <div class="box-point" >
-                            <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
+                            
+                                <div class="box-point1" style="padding-right: {{barReading}}%;">{{ nilaiReading }}</div>
                             <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
+                            
                         </div>
                     </td>
                 </tr>
@@ -460,12 +458,12 @@ body {
                     <td >Reading</td>
                     <td>
                         <div class="box-point" >
-                            <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
+                            <div class="box-point1" style="padding-right: {{barListen}}%;">{{nilaiListen}}</div>
                             <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
                         </div>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td >Writing</td>
                     <td>
                         <div class="box-point" >
@@ -473,14 +471,14 @@ body {
                             <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
 
             </table>
-            <div class="model">
+            <div class="model" style="margin-top: 100px;">
             <img src='{% static "Untitled_design__4_-removebg-preview.png" %}' width="500px" height="333px" style="z-index: 100; position: absolute;margin-left: 380px;">
-            <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in 7th rank</h1>
-            <img src='{% static  "Untitled_design__5_-removebg-preview.png" %}' width="80px" height="50px" style="z-index: 100; position: absolute;margin-left: 460px;margin-top: 380px;">
-            <h1 style="margin-left: 530px;color: #ffffff;z-index: 10; position: absolute;font-size: 20px;margin-top: 390px;"> Total points : </h1>
+            <!-- <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in 7th rank</h1> -->
+            <img src='{% static  "Untitled_design__5_-removebg-preview.png" %}' width="160px" height="100px" style="z-index: 100; position: absolute;margin-left: 400px;margin-top: 370px;">
+            <h1 style="margin-left: 530px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 390px;"> Total points : {{skor}}</h1>
             </div>
     </div>
     <!--bagian footer-->
@@ -490,4 +488,4 @@ body {
     </h1>
     <p style="color: #3942a8;text-align: center;z-index: 10000; margin-top: -70px;margin-bottom: 0pxe;position: relative;"><strong>© 2024 Learn Mandarin</strong></p>
 </body>
-</html>
+</html>         
