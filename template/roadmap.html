@@ -321,33 +321,36 @@ body, h1, h2, p, button {
                 <ul class="menu-kanan" style="z-index: 100; ">
                     <div style="display: block;" style="z-index: 1000;">
                         {% if request.user.is_authenticated %}
-                            <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
-                            <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 338px;margin-top: 43px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
-                                <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
-                                <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
-                            </div>
-                        {% else %}
-                        <a href="{% url 'login' %}">
-                            <button class="hskbutton" ><strong>LOGIN</strong></button>
-                        </a>
-                        {% endif %}
-                        <a href="{% url 'about' %}">
-                            <button class="hskbutton"><strong>ABOUT US</strong></button>
-                        </a>
-                        <a href="{% url 'roadmap' %}">
-    
-                            <button class="hskbutton" ><strong>ROADMAP</strong></button>
-                        </a>
-                        <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
-                            <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px; margin-top: 43px;">
-                                <!--tinggal link ke page yang dituju-->
-                                <a href="{% url 'hsk' 1 %}" style="padding: 10px;">HSK 1</a> 
-                                <a href="{% url 'hsk' 2 %}" style="padding: 10px;">HSK 2</a>
-                                <a href="{% url 'hsk' 3 %}" style="padding: 10px;">HSK 3</a>
-                                <a href="{% url 'hsk' 4 %}" style="padding: 10px;">HSK 4</a>
-                                <a href="{% url 'hsk' 5 %}" style="padding: 10px;">HSK 5</a>
-                                <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
-                            </div>
+                        <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
+                        <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 430px; margin-top: 30px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
+                            <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
+                            <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                        </div>
+                    {% else %}
+                    <a href="{% url 'login' %}">
+                        <button class="hskbutton" ><strong>LOGIN</strong></button>
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'about' %}">
+                        <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    </a>
+                    <a href="{% url 'event' %}">
+                        <button class="hskbutton"><strong>EVENT</strong></button>
+                    </a>
+                    <a href="{% url 'roadmap' %}">
+
+                        <button class="hskbutton" ><strong>ROADMAP</strong></button>
+                    </a>
+                    <button onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="hskbutton dropbawah" id="hskbutton"><strong>HSK</strong></button>
+                        <div onmouseenter="dropdown('show')" onmouseleave="dropdown()" class="dropbawah-child" id="myDropdown" style="margin: 50px;margin-left: -10px;margin-top: 30px">
+                            <!--tinggal link ke page yang dituju-->
+                            <a href="{% url 'hsk' 1 %}" style="padding: 10px;">HSK 1</a> 
+                            <a href="{% url 'hsk' 2 %}" style="padding: 10px;">HSK 2</a>
+                            <a href="{% url 'hsk' 3 %}" style="padding: 10px;">HSK 3</a>
+                            <a href="{% url 'hsk' 4 %}" style="padding: 10px;">HSK 4</a>
+                            <a href="{% url 'hsk' 5 %}" style="padding: 10px;">HSK 5</a>
+                            <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
+                        </div>
                     </div>
                 </ul>    
             </strong>

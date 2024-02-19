@@ -38,11 +38,13 @@ storage = firebase.storage()
 def index(request):
     hsk= list_hsk.objects.all()
     userf=None
-    context={"list": hsk, "history":userf}
+    notifi=0
+    context={"list": hsk, "history":userf, 'notifikasi':notifi}
     data = (database.child('event').get()).val()
     dataEvent={}
     angka=1
     trueorfalse= True
+    
     for event in data:
         temp=data[event]
         temp.update({"angka":angka, 'trueorfalse': trueorfalse})
@@ -57,8 +59,13 @@ def index(request):
     
     if request.user.is_authenticated:
         userf=userFire.objects.get(user=request.user)
-        context={"list": hsk, "history":userf, 'event': dataEvent}
-    context={"list": hsk, "history":userf, 'event': dataEvent}
+        UID = get_UID(userf.kunci)
+        user = (database.child('users').child(UID).get()).val()
+        notifikasi= user['notifikasi']
+        for event in notifikasi:
+            if notifikasi[event]['unread']:
+                notifi+=1
+        context={"list": hsk, "history":userf, 'event': dataEvent, 'notifikasi':notifi}
     # print(context)
     return render(request, "index3.html", context)
 
@@ -208,40 +215,30 @@ def profile(request):
     nilaiListen=0
     nilaiReading=0
     nilaiTotal=0
+    angka =0
     #mengambil data dari firebase
     info = auth.get_account_info(str(userf.kunci))
     uid = info['users'][0]['localId']
     if (database.child("users").child(uid).get()).val() is not None:
-
-        # nilaiTrue=(database.child("users").child(uid).child('hsk').get()).val()
-        # # for event in nilaiTrue:
-        # #     if event != 
-        # # print(coba)
-        # for nilaiOke in nilaiTrue:
-        #     nilaiOke=(database.child("users").child(uid).child('hsk').child(str(nilaiOke)).get()).val()
-        #     for nilai in nilaiOke:
-        #         # print(nilai)
-        #         if "nilaiListen" in nilai:
-        #             if nilaiOke[nilai] > 0:
-        #                 nilaiListen+=nilaiOke[nilai]
-        #                 listen+=1
-        #         elif "nilaiReading" in nilai:
-        #             if nilaiOke[nilai] > 0:
-        #                 nilaiReading+=nilaiOke[nilai]
-        #                 reading+=1
-        
-        # nilaiTotal= nilaiListen+nilaiReading
-
-        # if listen>0:
-        #     nilaiListen/=listen
-        # if reading>0:
-        #     nilaiReading/=reading
-        # database.child('users').child(uid).update({'totalNilai':nilaiTotal})
-
         user= (database.child('users').child(uid).get()).val()
         nilaiTotal=(user['totalNilai'])
         nilaiListen= user['nilaiListen']
         nilaiReading = user['nilaiReading']
+
+        users= (database.child('users').get()).val()
+
+        listNilaiUser=[]
+        for user in users:
+            # print(users[str(users)])
+            temp= users[user]['totalNilai']
+            listNilaiUser.append(temp)
+        
+        listNilaiUser.sort(reverse=True)
+        angka = listNilaiUser.index(nilaiTotal)
+        angka +=1
+        placment= str(angka)[-1]
+        print(placment)
+
     context={
         "barListen":((nilaiListen*90)/100),
         "barReading": (nilaiReading*90)/100,
@@ -249,6 +246,8 @@ def profile(request):
         'nilaiReading': int(nilaiReading),
         "skor": nilaiTotal,
         "history": userf,
+        "rangking": angka,
+        "placement": int(placment)
     }
     return render(request, 'profile.html', context)
 
@@ -335,7 +334,13 @@ def uploadEvent(request):
                   'author': author,
                   "timeUpload": time,
                   'urls': urls}
+            
+            data={'NamaEvent': Nama, 'unread':True}
             database.child("event").child(str(Nama)).set(Kumpulan)
+            users = (database.child('users').get()).val()
+            for user in users:
+                database.child('users').child(user).child('notifikasi').child(Nama).set(data)
+
             messages.info(request, "Upload Berhasil")
             return redirect('/')
         else:
@@ -430,3 +435,38 @@ def get_UID(token):
     user = auth.get_account_info(token)
     UID = user['users'][0]['localId']
     return UID
+
+
+def partition(array, low, high):
+  pivot = array[high]
+  i = low - 1
+  for j in range(low, high):
+    if array[j] <= pivot:
+      i = i + 1
+      (array[i], array[j]) = (array[j], array[i])
+  (array[i + 1], array[high]) = (array[high], array[i + 1])
+  return i + 1
+
+def quickSort(array, low, high):
+  if low < high:
+    pi = partition(array, low, high)
+    quickSort(array, low, pi - 1)
+    quickSort(array, pi + 1, high)
+
+
+def notif(request):
+    userf=userFire.objects.get(user=request.user)
+    UID  = get_UID(userf.kunci)
+    notifikasi = (database.child('users').child(UID).child('notifikasi').get()).val()
+    context={}
+    temp={}
+    for notif in notifikasi:
+        tempo= (database.child('event').child(notif).get()).val()
+        print(tempo)
+        temp.update({str(notif): tempo})
+        database.child('users').child(UID).child('notifikasi').child(notif).update({"unread":False})
+    context={
+        'event': temp
+    }
+    print(context)
+    return render(request, 'notif.html', context)

@@ -14,6 +14,7 @@ urlpatterns=[
     path('detail_event/<str:id>', views.detail_event, name='detail_event'),
     path('event', views.event, name="event"),
     path("upload", views.uploadEvent, name='uploadEvent'),
-    path('about', views.about, name="about")
+    path('about', views.about, name="about"),
+    path('notif', views.notif , name='notif')
 
 ]

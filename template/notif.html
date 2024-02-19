@@ -1,10 +1,10 @@
-{% load static %}
-
+{% load static  %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href='{% static "lm1.png" %}' style="width: 200px;height: 300px;">
-    <title>Profile Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="lm1.png" style="width: 200px;height: 300px;">
+    <title>Event</title>
     <style>
         body{
             margin: 0px;
@@ -13,7 +13,7 @@
         .backgroundimg{
             width: 100pw;
             height: 300px;
-            background-color: blueviolet;
+            background-color: #e8bb15;
             margin: 0px;
             padding: 0px;
             position: relative;
@@ -28,12 +28,11 @@
             margin-right: 50%;
             position: relative;
             z-index: 50;
-            margin-top: 10p;
         }
        
         .container{
             width: 63rem;
-            height: 100rem;
+            height: 35rem;
             box-shadow: 0 0 1rem 0 rgba(0, 0, 0,.2);
             position: relative;
             overflow: hidden;
@@ -67,7 +66,7 @@
             height: 10px;
             color: #ffffff; 
             background-color: #ffffff;
-            margin-top: -950px;
+            margin-top: 60px;
             position: absolute;
             z-index: 100;
             width: 80%;
@@ -220,7 +219,7 @@
         .buttonnih{
             padding: 50px;
             padding-left: 150px;
-            padding-right: 150px;
+            padding-right: 90px;
             background-color: orange;
             color: #634680;
             font-size: larger;
@@ -230,8 +229,8 @@
             position: relative;
             margin-top: -200px;
             margin-left: 330px;
-            width: 30px;
-            height: 40px;
+            width: 10px;
+            height: 30px;
         }
         .buttonnih:hover{
             background-color: #857991;
@@ -239,61 +238,78 @@
             color: orange;
             padding: 50px;
             padding-left: 150px;
-            padding-right: 150px;
+            padding-right: 90px;
             position: relative;
             width: 30px;
-            z-index: 90;
+            z-index: 900;
         }
         .dekorasi{
             justify-content: end;
             align-self: flex-end;
-            margin-top: 30px;
+
             background-color: transparent;
             color: black;
             font-size: larger;
             border: #ffffff;
             border-radius: 10px;
             z-index: 90;
-            margin-left: -60px;
+            margin-left: -90px;
             position: absolute;
+            margin-top: -2px;
+
         }
-        table{
-            /* margin-top: -1000px; */
-            z-index: 900;
-            margin-left: 228px;
-            position: relative;
+        #carouselExampleControls {
+            margin-top: 30px; 
             
         }
-        th,td{
+        .geser{
+            margin-left: 35px;
+        }
+        .boxclose{
+            background-color: #3942a8;
+            padding: 90px;
+            width: 1060px;
+            height: 350px;
+            margin-top: 50px;
+            margin-left: 100px;
+            margin-bottom: -50px;
             border-radius: 10px;
+        }
+        .boxdoang{
             background-color: #e8bb15;
-            padding: 30px;
-            z-index: 9000;
-            position: relative;
+            padding: 90px;
+            width: 300px;
+            height: 300px;
+            margin-top: -65px;
+            margin-left: -50px;
+            margin-bottom: 10px;
+            border-radius: 20px;
         }
-        .box-point{
-            background-color: #624166;
+        .boxclose1{
+            background-color:#e8bb15;
+            padding: 90px;
+            width: 1060px;
+            height: 350px;
+            margin-top: 50px;
+            margin-left: 100px;
+            margin-bottom: -50px;
             border-radius: 10px;
-            padding-top: -10px;
-            margin-top: -20px;
-            position: absolute;
-            width: 500px;
-            
         }
-        .box-point1{
-            background-color: #ffffff;
-            border-radius: 5px;
-            padding-top: 0px;
-            margin-top: -25px;
-            position: absolute;
-            z-index: 1000000;
-            margin-left: 7px;
-            text-indent: 10px; margin-top: 10px;
-         
+        .boxdoang1{
+            background-color:#3942a8;
+            padding: 90px;
+            width: 300px;
+            height: 300px;
+            margin-top: -65px;
+            margin-left: -50px;
+            margin-bottom: 100px;
+            border-radius: 20px;
         }
-        .model{
-            margin-top: 20px;
-            z-index: 1;
+        .naik{
+            margin-top: -160px;
+        }
+        .geserin{
+            margin-left: 60px;
         }
         /* Reset some default styles */
 body, h1, h2, p, button {
@@ -345,16 +361,16 @@ body {
 }
     </style>
 </head>
-<body>
+<body> 
     <a href="/">
+
         <img src='{% static "lm.png" %}' style="float: left;width: 200px;height: 160px;margin-left: -40px;margin-top: -50px;padding-left: 10px;position: fixed;z-index: 99000;">
     </a>
 
     <div class="pp" style="z-index: 10000;">
         <strong>
             <ul class="menu-kanan" style="z-index: 100;">
-                <div style="display: block;" style="z-index: 1000;">
-                    {% if request.user.is_authenticated %}
+                {% if request.user.is_authenticated %}
                         <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
                         <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 430px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
                             <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
@@ -386,7 +402,7 @@ body {
                             <a href="{% url 'hsk' 6 %}" style="padding: 10px;">HSK 6</a>
                         </div>
                 </div>
-            </ul>    
+            </ul>       
         </strong>
     </div>
     <script>
@@ -420,82 +436,33 @@ body {
             }
         }
     </script>
-            <div class="backgroundimg"></div>
-    <div style="margin-left: 200px;">
-            <!-- <div class="circle" style="margin-top:-100px;margin-left: 34%;"></div> -->
-            <img src="{% static 'profile.jpg' %}" class="circle" alt="" style="margin-top:-100px;margin-left: 34%;">
-        
-            <div class="container" style="margin-top: -100px;">
-                <h1 style="color: rgb(255, 255, 255);text-align: center;text-indent: 0px;margin-top: 150px; position: absolute;"><strong>{{request.user}}</strong></h1>
-                <div class="garishori"></div>
-            </div>
-            <div class="buttonnih" style="left: 300px;top: 20px; margin-left: 170px;">
-            <a href="{{history.historyUrl}}"><button class="dekorasi"><strong>Last Lesson</strong></button></a>
-            </div>
-            <img src='{% static "b805ebe6-5867-4004-a964-3f65d9d9614d.png" %}'style="margin-top: -110px;width:70px; height:70px;margin-left: 590px;z-index: 900;position: absolute;">
-            
-            <h1 style="padding-left: 0px;
-            padding-right: 0px;border-radius: 10px;
-                    background-color: #e8bb15;
-                    width: 810px;
-                    z-index: 9000;
-                    position: relative;
-                    margin-left: 230px;
-                    position: relative;margin-top: -1100px;margin-bottom: 0px;text-align: center;">RESULT</h1>
-            <table style=" margin-top: 10px;z-index: 200;text-align: center;position: relative;">
-                <tr>
-                    <th style="width: 200px;"> Aspects </th>
-                    <th style="width: 490px;"> Points </th>
-                </tr>
-                <tr>
-                    <td >Listening</td>
-                    <td>
-                        <div class="box-point" >
-                            
-                                <div class="box-point1" style="padding-right: {{barReading}}%;">{{ nilaiReading }}</div>
-                            <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
-                            
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td >Reading</td>
-                    <td>
-                        <div class="box-point" >
-                            <div class="box-point1" style="padding-right: {{barListen}}%;">{{nilaiListen}}</div>
-                            <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
-                        </div>
-                    </td>
-                </tr>
-                <!-- <tr>
-                    <td >Writing</td>
-                    <td>
-                        <div class="box-point" >
-                            <div class="box-point1" style="text-indent: 10px;margin-top: 10px;">30</div>
-                            <p style="color: #ffffff;text-align: right;padding-bottom: 0px;position: relative;top: -1px;margin: 10px;">100</p>
-                        </div>
-                    </td>
-                </tr> -->
 
-            </table>
-            <div class="model" style="margin-top: 100px;">
-            <img src='{% static "Untitled_design__4_-removebg-preview.png" %}' width="500px" height="333px" style="z-index: 100; position: absolute;margin-left: 380px;">
-            {% if placement == 1 %}
-            <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in {{rangking}}st rank</h1>
-            {% elif placement == 2 %}
-            <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in {{rangking}}nd rank</h1>
-            {% else %}
-            <h1 style="margin-left: 460px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 300px;">You are in {{rangking}}th rank</h1>
-            {% endif %}
-            <img src='{% static  "Untitled_design__5_-removebg-preview.png" %}' width="160px" height="100px" style="z-index: 100; position: absolute;margin-left: 400px;margin-top: 370px;">
-            <h1 style="margin-left: 530px;color: #ffffff;z-index: 10; position: absolute;font-size: 40px;margin-top: 390px;"> Total points : {{skor}}</h1>
-            </div>
+    <div class="backgroundimg">
+        <h1 style="font-size: 200px;color: #fefefe;position:absolute;z-index: 10000000000000;margin-top: 60px;margin-left: 100px;text-align: center;"><strong>Notifikasi</strong></h1>
     </div>
-    <!--bagian footer-->
-    <h1 style="background-color: #e8bb15;margin-bottom: 0px;margin-top: 900px;height: 200px;position:sticky;">
-        <center><img src='{% static "lmmm-removebg-preview.png" %}'width="230px" height="150px" style="margin-top: 10px;margin-left: 10px;"></center>
-        
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    <h2 style="color: whitesmoke;font-size: 70px;margin-left: 80px;margin-top: 50px;">Temukan event terbaru disini</h2>
+
+    {% for acara, details in event.items %}
+    <a href="{% url 'detail_event' acara %}">
+        <div class="boxclose1"><img src="{{details.image}}" style="width: 300px;height: 300px;margin-top: -65px;margin-left: -50px;margin-bottom: 100px;border-radius: 20px;" alt="">
+            <h1 style="color: white;margin-left: 300px;margin-top: -400px; font-size: 40px;"><strong>{{acara|truncatechars:27}}</strong></h1>
+            <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: 10px;font-size: medium;"> {{details.deskripsi|truncatechars:60}} </p>
+            <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: 50px;font-size: 27px;"> <strong>Deadline : {{details.deadline}}
+            </strong> </p>
+            <p style="color: rgb(255, 255, 255);margin-left: 300px;margin-top: -10px;font-size: 27px;"> <strong>Event : {{details.Waktu}}</strong> </p>
+        </div>
+        <img src='{% static "tampilan_untuk_event_yang_ada-removebg-preview.png" %}' width="100px" height="80px" style="margin-top: -400px;margin-left: 1000px;margin-bottom: 0px;">
+    </a>
+    {% endfor %}
+
+    <h1 style="background-color: #e8bb15;margin-bottom: 0px;margin-top: 100px;height: 200px;">
+        <center><img src='{% static "lmmm-removebg-preview.png" %}' width="230px" height="150px" style="margin-top: 10px;margin-left: 10px;"></center>
     </h1>
-    <p style="color: #3942a8;text-align: center;z-index: 10000; margin-top: -70px;margin-bottom: 0pxe;position: relative;"><strong>© 2024 Learn Mandarin</strong></p>
+    <p style="color: #3942a8;text-align: center;z-index: 100; margin-top: -70px;margin-bottom: 0pxe;"><strong>© 2024 Learn Mandarin</strong></p>
 </body>
-</html>         
+</html>
