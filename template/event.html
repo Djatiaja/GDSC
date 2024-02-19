@@ -370,10 +370,9 @@ body {
     <div class="pp" style="z-index: 10000;">
         <strong>
             <ul class="menu-kanan" style="z-index: 100;">
-                <div style="display: block;" style="z-index: 1000;">
-                    {% if request.user.is_authenticated %}
+                {% if request.user.is_authenticated %}
                         <button class="hskbutton dropbawah" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'> <b> {{  user.username  }}</b></button>
-                        <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 338px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
+                        <div class="dropdown-content" id="dropdownContent" style="margin: 50px;margin-left: 430px;" onmouseenter='toggleDropdown("show")' onmouseleave='toggleDropdown()'>
                             <a href=" {% url 'profile' %}" class="dropdown-item" >Profil</a>
                             <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
                         </div>
@@ -384,6 +383,9 @@ body {
                     {% endif %}
                     <a href="{% url 'about' %}">
                         <button class="hskbutton"><strong>ABOUT US</strong></button>
+                    </a>
+                    <a href="{% url 'event' %}">
+                        <button class="hskbutton"><strong>EVENT</strong></button>
                     </a>
                     <a href="{% url 'roadmap' %}">
 

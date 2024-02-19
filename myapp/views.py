@@ -47,7 +47,7 @@ def index(request):
         temp=data[event]
         temp.update({"angka":angka, 'trueorfalse': trueorfalse})
         eventDict= {str(event): data[event]}
-        print(data[event])
+        # print(data[event])
         dataEvent.update(eventDict)
         angka+=1
         if trueorfalse:
@@ -59,7 +59,7 @@ def index(request):
         userf=userFire.objects.get(user=request.user)
         context={"list": hsk, "history":userf, 'event': dataEvent}
     context={"list": hsk, "history":userf, 'event': dataEvent}
-    print(context)
+    # print(context)
     return render(request, "index3.html", context)
 
 def hsk(request, id):
@@ -76,23 +76,24 @@ def hsk(request, id):
     #mengambil data dari firebase
     info = auth.get_account_info(str(userf.kunci))
     uid = info['users'][0]['localId']
-    if (database.child("users").child(uid).child('hsk'+str(id)).get()).val() is not None:
+    if (database.child("users").child(uid).child('hsk').child('hsk'+str(id)).get()).val() is not None:
 
-        nilaiAsli=(database.child("users").child(uid).child('hsk'+str(id)).get()).val()
-        nilaiTrue=(database.child("users").child(uid).get()).val()
-        for nilaiOke in nilaiTrue:
-            nilaiOke=(database.child("users").child(uid).child(str(nilaiOke)).get()).val()
-            for nilai in nilaiOke:
-                print(nilai)
-                if "nilaiListen" in nilai:
-                    nilaiListen+=nilaiOke[nilai]
-                elif "nilaiReading" in nilai:
-                    nilaiReading+=nilaiOke[nilai]
-        print(nilaiListen)
-        print(nilaiReading)
+        nilaiAsli=(database.child("users").child(uid).child('hsk').child('hsk'+str(id)).get()).val()
+        # nilaiTrue=(database.child("users").child(uid).child('hsk').get()).val()
+        # for nilaiOke in nilaiTrue:
+        #     nilaiOke=(database.child("users").child(uid).child(str(nilaiOke)).get()).val()
+        #     for nilai in nilaiOke:
+        #         # print(nilai)
+        #         if "nilaiListen" in nilai:
+        #             nilaiListen+=nilaiOke[nilai]
+        #         elif "nilaiReading" in nilai:
+        #             nilaiReading+=nilaiOke[nilai]
+        # print(nilaiListen)
+        # print(nilaiReading)
+        print(nilaiAsli)
 
         context.update(nilaiAsli)
-        print(context)
+        # print(context)
     
     return render(request, "TrueHSK.html", context)
 
@@ -108,7 +109,8 @@ def loginUser(request):
         firebase_respon = loadDataFromFirebaseAPI(token)
         
         firebase_dict = json.loads(firebase_respon)
-        print(firebase_dict)
+        # print(firebase_dict)
+        print(1)
         if 'users' in firebase_dict:
             users = firebase_dict["users"]
             if len(users)>0:
@@ -132,7 +134,7 @@ def loginUser(request):
                 return render(request, "login.html")
         else:
             print(2)
-            messages.info('Bad Request')
+            messages.info(request, 'Bad Request')
     
     return render(request, "login.html")
 
@@ -140,14 +142,15 @@ def loadDataFromFirebaseAPI(token):
 
     url = "https://identitytoolkit.googleapis.com/v1/accounts:lookup"
 
-    payload = 'key=&idToken='+token
+    payload = 'key=AIzaSyCx_PWWt4dVxQRvcVzMe6ew8dZndSN7k1Y&idToken='+token
     headers = {
     'Content-Type': 'application/x-www-form-urlencoded'
     }
 
     response = request("POST", url, headers=headers, data=payload)
-    print(response)
 
+    # print(response)
+    # print('\nreponse')
     return response.text
 
 
@@ -165,7 +168,7 @@ def proceedToLogin(email, username, token, request):
         user= User.objects.create_user(email=email, username=username, password=settings.SECRET_KEY)
         user_one = User.objects.get(username=username)  
         kunci= userFire.objects.create(kunci=token, user=user_one)
-        print(kunci)
+        # print(kunci)
         user_one.backend = 'django.contrib.auth.backends.ModelBackend'
         login(request, user_one)
         return 'Login_Success'
@@ -178,8 +181,13 @@ def register(request):
         password = request.POST.get("password1")
         user= auth.create_user_with_email_and_password(email, password)
         auth.update_profile(user['idToken'], display_name = username)
+        UID=get_UID(user['idToken'])
         auth.send_email_verification(user['idToken'])
         messages.info(request,"Email Verifikasi telah dikirim")
+        data={
+            'totalNilai': 0
+        }
+        database.child('users').child(UID).set(data)
         return redirect('login')
 
     context={
@@ -192,6 +200,8 @@ def logoutUser(request):
     return redirect("/")
 
 def profile(request):
+    # isiUser()
+
     userf=userFire.objects.get(user=request.user)
     listen=0
     reading=0
@@ -202,28 +212,36 @@ def profile(request):
     info = auth.get_account_info(str(userf.kunci))
     uid = info['users'][0]['localId']
     if (database.child("users").child(uid).get()).val() is not None:
-        nilaiTrue=(database.child("users").child(uid).get()).val()
-        coba = (database.child('event').get()).val()
-        print(coba)
-        for nilaiOke in nilaiTrue:
-            nilaiOke=(database.child("users").child(uid).child(str(nilaiOke)).get()).val()
-            for nilai in nilaiOke:
-                print(nilai)
-                if "nilaiListen" in nilai:
-                    if nilaiOke[nilai] > 0:
-                        nilaiListen+=nilaiOke[nilai]
-                        listen+=1
-                elif "nilaiReading" in nilai:
-                    if nilaiOke[nilai] > 0:
-                        nilaiReading+=nilaiOke[nilai]
-                        reading+=1
-        
-        nilaiTotal= nilaiListen+nilaiReading
 
-        if listen>0:
-            nilaiListen/=listen
-        if reading>0:
-            nilaiReading/=reading
+        # nilaiTrue=(database.child("users").child(uid).child('hsk').get()).val()
+        # # for event in nilaiTrue:
+        # #     if event != 
+        # # print(coba)
+        # for nilaiOke in nilaiTrue:
+        #     nilaiOke=(database.child("users").child(uid).child('hsk').child(str(nilaiOke)).get()).val()
+        #     for nilai in nilaiOke:
+        #         # print(nilai)
+        #         if "nilaiListen" in nilai:
+        #             if nilaiOke[nilai] > 0:
+        #                 nilaiListen+=nilaiOke[nilai]
+        #                 listen+=1
+        #         elif "nilaiReading" in nilai:
+        #             if nilaiOke[nilai] > 0:
+        #                 nilaiReading+=nilaiOke[nilai]
+        #                 reading+=1
+        
+        # nilaiTotal= nilaiListen+nilaiReading
+
+        # if listen>0:
+        #     nilaiListen/=listen
+        # if reading>0:
+        #     nilaiReading/=reading
+        # database.child('users').child(uid).update({'totalNilai':nilaiTotal})
+
+        user= (database.child('users').child(uid).get()).val()
+        nilaiTotal=(user['totalNilai'])
+        nilaiListen= user['nilaiListen']
+        nilaiReading = user['nilaiReading']
     context={
         "barListen":((nilaiListen*90)/100),
         "barReading": (nilaiReading*90)/100,
@@ -231,7 +249,6 @@ def profile(request):
         'nilaiReading': int(nilaiReading),
         "skor": nilaiTotal,
         "history": userf,
-        'coba': coba
     }
     return render(request, 'profile.html', context)
 
@@ -242,7 +259,7 @@ def detail_event(request, id):
     data= (database.child('event').child(str(id)).get()).val()
     context={}
     context.update(data)
-    print(context)
+    # print(context)
     return render(request, 'detail_event2.html', context)
 
 def event(request):
@@ -254,7 +271,7 @@ def event(request):
         temp=data[event]
         temp.update({"angka":angka, 'trueorfalse': trueorfalse})
         eventDict= {str(event): data[event]}
-        print(data[event])
+        # print(data[event])
         dataEvent.update(eventDict)
         angka+=1
         if trueorfalse:
@@ -263,7 +280,7 @@ def event(request):
             trueorfalse=True
     context={'event':dataEvent}
     
-    print(context)
+    # print(context)
     return render(request, 'event.html', context)
 
 def uploadEvent(request):
@@ -287,7 +304,7 @@ def uploadEvent(request):
             imageName= str(request.FILES['image'].name)
         except:
             imageName=None
-        print(imageName)
+        # print(imageName)
         KumpulanCheck =[deadline, Tanggal_event, Waktu, instagram, twitter, Nama, imageName, benefit, deskripsi, kategori, author, time, urls]
         Kumpulan={'deadline': deadline, 
                   'Tanggal_event': Tanggal_event,
@@ -301,7 +318,7 @@ def uploadEvent(request):
                   'author': author,
                   "timeUpload": time}
         
-        print(KumpulanCheck)
+        # print(KumpulanCheck)
         if all(kumpul != '' for kumpul in KumpulanCheck):
             storage.child('event/'+imageName).put(image)
             image= storage.child('event/'+imageName).get_url(image)
@@ -327,7 +344,7 @@ def uploadEvent(request):
 
 def about(request):
     gambar = (database.child('event').child("Webinar").child('asdw').child('image').get()).val()
-    print(gambar)
+    # print(gambar)
     return render(request, 'about.html', )
 
 def isiHsk(request, id):
@@ -342,6 +359,11 @@ def isiHsk(request, id):
     #     data = (database.child("users").child(uid).child("hsk"+str(id)).get()).val()
     #     context.update(data)
 
+    nilaiListen=0
+    nilaiReading=0
+    listen=0
+    reading=0
+
     if request.method == "POST":
         nilaiListening1= request.POST.get('listening1')
         nilaiListening2= request.POST.get('listening2')
@@ -353,7 +375,7 @@ def isiHsk(request, id):
 
         nilais=[nilaiListening1, nilaiListening2, nilaiListening3, nilaiReading1,nilaiReading2,nilaiReading3]
         for i in range( len(nilais)):
-            print(nilais[i])
+            # print(nilais[i])
             if nilais[i] == '':
                 nilais[i]=0
         
@@ -365,15 +387,46 @@ def isiHsk(request, id):
         info = auth.get_account_info(str(userf.kunci))
         uid = info['users'][0]['localId']
         
-        database.child("users").child(uid).child("hsk"+str(id)).set(dict)
+        database.child("users").child(uid).child('hsk').child("hsk"+str(id)).set(dict)
+        nilaiTrue=(database.child("users").child(uid).child('hsk').get()).val()
+        # for event in nilaiTrue:
+        #     if event != 
+        # print(coba)
+        for nilaiOke in nilaiTrue:
+            nilaiOke=(database.child("users").child(uid).child('hsk').child(str(nilaiOke)).get()).val()
+            for nilai in nilaiOke:
+                # print(nilai)
+                if "nilaiListen" in nilai:
+                    if nilaiOke[nilai] > 0:
+                        nilaiListen+=nilaiOke[nilai]
+                        listen+=1
+                elif "nilaiReading" in nilai:
+                    if nilaiOke[nilai] > 0:
+                        nilaiReading+=nilaiOke[nilai]
+                        reading+=1
+        
+
+        nilaiTotal= nilaiListen+nilaiReading
+        if listen>0:
+            nilaiListen/=listen
+        if reading>0:
+            nilaiReading/=listen
+
+        database.child('users').child(uid).update({'totalNilai':nilaiTotal, 'nilaiReading': nilaiReading, 'nilaiListen':nilaiListen})
+
 
         return redirect("/"+'hsk'+"/"+str(id))
     return render(request, "isiHSK.html", context )
 
-def update_variable(value):
-    data = value
-    return data
 
-registerit = template.Library()
+def isiUser():
+    users = (database.child('users').get()).val()
+    for user in users:
+        print(user)
+        database.child('users').child(user).child("total_nilai").set({'NilaiTotal': 0})
 
-registerit.filter('update_variable', update_variable)
+
+def get_UID(token):
+    user = auth.get_account_info(token)
+    UID = user['users'][0]['localId']
+    return UID
