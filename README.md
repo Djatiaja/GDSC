@@ -1,1 +1,1 @@
-ini pake django 
+Django/Firebase 
